@@ -2,7 +2,6 @@
 
 import React from "react";
 import { useLanguage } from "@/context/LanguageContext";
-import { Globe } from "lucide-react";
 
 export default function LanguageToggle() {
   const { locale, setLocale } = useLanguage();

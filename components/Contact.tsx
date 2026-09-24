@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import { useLanguage } from "@/context/LanguageContext";
-import { Mail, Copy, Check, Send, MapPin, MessageSquare } from "lucide-react";
+import { Mail, Copy, Check, Send, MapPin } from "lucide-react";
 import { GithubIcon, LinkedinIcon } from "@/components/Icons";
 
 export default function Contact() {

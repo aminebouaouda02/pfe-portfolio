@@ -13,18 +13,19 @@ interface LanguageContextType {
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
 
 export function LanguageProvider({ children }: { children: React.ReactNode }) {
-  const [locale, setLocaleState] = useState<Locale>("fr");
-
-  useEffect(() => {
-    try {
-      const saved = localStorage.getItem("portfolio_lang") as Locale | null;
-      if (saved === "en" || saved === "fr") {
-        setLocaleState(saved);
+  const [locale, setLocaleState] = useState<Locale>(() => {
+    if (typeof window !== "undefined") {
+      try {
+        const saved = localStorage.getItem("portfolio_lang") as Locale | null;
+        if (saved === "en" || saved === "fr") {
+          return saved;
+        }
+      } catch {
+        // localStorage may fail in restricted iframe environments
       }
-    } catch {
-      // localStorage may fail in restricted iframe environments
     }
-  }, []);
+    return "fr";
+  });
 
   useEffect(() => {
     if (typeof document !== "undefined") {

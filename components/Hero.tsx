@@ -1,7 +1,7 @@
 "use client";
 
 import { useLanguage } from "@/context/LanguageContext";
-import { ArrowDown, ExternalLink, Sparkles, Mail, Terminal, CheckCircle2, FileDown } from "lucide-react";
+import { ArrowDown, Mail, Terminal, CheckCircle2, FileDown } from "lucide-react";
 import { GithubIcon, LinkedinIcon } from "@/components/Icons";
 
 interface HeroProps {
@@ -9,7 +9,7 @@ interface HeroProps {
 }
 
 export default function Hero({ onOpenTerminal }: HeroProps) {
-  const { data, locale } = useLanguage();
+  const { data } = useLanguage();
   const { personal, stats, ui } = data;
 
   return (
@@ -212,7 +212,7 @@ export default function Hero({ onOpenTerminal }: HeroProps) {
                   {"\n"}  readyForImpact: <span style={{ color: "#34d399" }}>true</span>,
                   {"\n"}&#125;;
                   {"\n\n"}
-                  <span style={{ color: "#64748b" }}>// {ui.hero.codeMission}</span>
+                  <span style={{ color: "#64748b" }}>{"// " + ui.hero.codeMission}</span>
                   {"\n"}
                   <span style={{ color: "#f472b6" }}>export default function</span>{" "}
                   <span style={{ color: "#818cf8" }}>architectSolutions</span>() &#123;

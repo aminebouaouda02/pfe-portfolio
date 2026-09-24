@@ -47,7 +47,7 @@ export default function ParticleBackground() {
       });
     }
 
-    let mouse = { x: -1000, y: -1000 };
+    const mouse = { x: -1000, y: -1000 };
     const handleMouseMove = (e: MouseEvent) => {
       mouse.x = e.clientX;
       mouse.y = e.clientY;
@@ -91,7 +91,7 @@ export default function ParticleBackground() {
       }
 
       // Draw and update particles
-      for (let p of particles) {
+      for (const p of particles) {
         ctx.fillStyle = p.color;
         ctx.beginPath();
         ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);

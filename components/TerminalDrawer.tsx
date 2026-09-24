@@ -23,25 +23,6 @@ export default function TerminalDrawer({ isOpen, onClose }: TerminalDrawerProps)
   const terminalEndRef = useRef<HTMLDivElement | null>(null);
   const inputRef = useRef<HTMLInputElement | null>(null);
 
-  useEffect(() => {
-    setHistory([
-      {
-        output: (
-          <div>
-            <span style={{ color: "var(--accent-cyan)", fontWeight: 700 }}>
-              {data.ui.terminal.welcomeTitle}
-            </span>
-            <br />
-            <span style={{ color: "var(--text-muted)", fontSize: "0.85rem" }}>
-              {data.ui.terminal.welcomeSubtitle}{" "}
-              <span style={{ color: "var(--accent-emerald)" }}>help</span>{" "}
-              {locale === "fr" ? "pour afficher les commandes disponibles." : "to list available commands."}
-            </span>
-          </div>
-        ),
-      },
-    ]);
-  }, [locale, data.ui.terminal]);
 
   useEffect(() => {
     if (isOpen) {
@@ -292,6 +273,19 @@ export default function TerminalDrawer({ isOpen, onClose }: TerminalDrawerProps)
             lineHeight: 1.6,
           }}
         >
+          {/* Welcome Banner */}
+          <div style={{ marginBottom: "0.9rem" }}>
+            <span style={{ color: "var(--accent-cyan)", fontWeight: 700 }}>
+              {data.ui.terminal.welcomeTitle}
+            </span>
+            <br />
+            <span style={{ color: "var(--text-muted)", fontSize: "0.85rem" }}>
+              {data.ui.terminal.welcomeSubtitle}{" "}
+              <span style={{ color: "var(--accent-emerald)" }}>help</span>{" "}
+              {locale === "fr" ? "pour afficher les commandes disponibles." : "to list available commands."}
+            </span>
+          </div>
+
           {history.map((item: TerminalHistoryItem, idx: number) => (
             <div key={idx} style={{ marginBottom: "0.9rem" }}>
               {item.command && (

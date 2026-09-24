@@ -1,7 +1,7 @@
 "use client";
 
 import { useLanguage } from "@/context/LanguageContext";
-import { Award, CheckCircle2, ShieldCheck, Sparkles, ExternalLink } from "lucide-react";
+import { Award, ShieldCheck } from "lucide-react";
 
 export default function Certifications() {
   const { data } = useLanguage();
