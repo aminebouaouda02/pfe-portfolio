@@ -12,8 +12,9 @@ export default function Projects() {
 
   const categories = [
     { id: "all", label: "All Projects" },
+    { id: "data", label: "Big Data & ML" },
+    { id: "iot", label: "IoT & Embedded" },
     { id: "systems", label: "Systems & Simulation" },
-    { id: "data", label: "Data & Telemetry" },
     { id: "fullstack", label: "Full-Stack Web" },
   ];
 

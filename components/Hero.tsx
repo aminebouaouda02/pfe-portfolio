@@ -2,7 +2,7 @@
 
 import React from "react";
 import { portfolioData } from "@/data/portfolioData";
-import { ArrowDown, ExternalLink, Sparkles, Mail, Terminal, CheckCircle2 } from "lucide-react";
+import { ArrowDown, ExternalLink, Sparkles, Mail, Terminal, CheckCircle2, FileDown } from "lucide-react";
 import { GithubIcon, LinkedinIcon } from "@/components/Icons";
 
 export default function Hero() {
@@ -61,6 +61,15 @@ export default function Hero() {
             <div style={{ display: "flex", flexWrap: "wrap", gap: "1rem", marginBottom: "3rem" }}>
               <a href="#projects" id="hero-explore-projects-btn" className="btn-primary">
                 Explore Projects <ArrowDown size={17} />
+              </a>
+
+              <a
+                href={personal.resumeUrl}
+                download="CV_Amine_Bouaouda.pdf"
+                id="hero-download-cv-btn"
+                className="btn-secondary"
+              >
+                <FileDown size={17} /> Download CV
               </a>
 
               <a href="#contact" id="hero-contact-btn" className="btn-secondary">

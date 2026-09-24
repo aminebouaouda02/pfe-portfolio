@@ -1,7 +1,7 @@
 export interface Project {
   id: string;
   title: string;
-  category: "all" | "fullstack" | "systems" | "data";
+  category: "all" | "fullstack" | "systems" | "data" | "iot";
   summary: string;
   description: string;
   tags: string[];
@@ -29,6 +29,14 @@ export interface TimelineItem {
   type: "work" | "education";
 }
 
+export interface Certification {
+  id: string;
+  title: string;
+  issuer: string;
+  date: string;
+  skills: string[];
+}
+
 export const portfolioData = {
   personal: {
     name: "Amine Bouaouda",
@@ -40,7 +48,7 @@ export const portfolioData = {
     github: "https://github.com/aminebouaouda02",
     linkedin: "https://www.linkedin.com/in/amine-bouaouda-071503278/",
     bio: "Master's student in Big Data & Internet of Things (BDIoT) at ENSAM Casablanca and aspiring AI Engineer. Passionate about architecting distributed Big Data platforms (Hadoop, Spark, Kafka), machine learning pipelines, IoT automation, and high-performance applications.",
-    resumeUrl: "#contact",
+    resumeUrl: "/cv-amine-bouaouda.pdf",
   },
 
   stats: [
@@ -119,7 +127,7 @@ export const portfolioData = {
     {
       id: "greenhouse-irrigation-iot",
       title: "Automated Greenhouse Irrigation System",
-      category: "systems",
+      category: "iot",
       featured: true,
       summary: "Solar-ready, autonomous regulated greenhouse irrigation system powered by Arduino and IoT sensors.",
       description:
@@ -257,4 +265,35 @@ export const portfolioData = {
       type: "education",
     },
   ] as TimelineItem[],
+
+  certifications: [
+    {
+      id: "cert-ensam-bigdata",
+      title: "Master's Graduate Specialization: Big Data Computing & Architectures",
+      issuer: "ENSAM Casablanca",
+      date: "2025 — 2026",
+      skills: ["Hadoop Cluster", "Apache Spark", "HDFS", "YARN", "Docker"],
+    },
+    {
+      id: "cert-ml-pipelines",
+      title: "Machine Learning & End-to-End Data Pipelines",
+      issuer: "Data Engineering Curriculum",
+      date: "2024 — 2025",
+      skills: ["Python", "Scikit-Learn", "ETL", "NoSQL", "Data Pipelines"],
+    },
+    {
+      id: "cert-pfe-flutter",
+      title: "Enterprise Mobile Architecture (PFE)",
+      issuer: "GM-Soft IT Solutions Consulting",
+      date: "2024",
+      skills: ["Flutter", "Dart", "Laravel API", "Database Design", "JWT"],
+    },
+    {
+      id: "cert-iot-systems",
+      title: "Embedded Hardware & Sensor Systems Design",
+      issuer: "Automation & Microcontroller Lab",
+      date: "2024 — 2025",
+      skills: ["Arduino Uno", "Embedded C++", "Relay Actuation", "PIR Sensors"],
+    },
+  ] as Certification[],
 };
