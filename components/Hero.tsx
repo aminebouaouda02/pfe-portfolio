@@ -5,7 +5,11 @@ import { portfolioData } from "@/data/portfolioData";
 import { ArrowDown, ExternalLink, Sparkles, Mail, Terminal, CheckCircle2, FileDown } from "lucide-react";
 import { GithubIcon, LinkedinIcon } from "@/components/Icons";
 
-export default function Hero() {
+interface HeroProps {
+  onOpenTerminal?: () => void;
+}
+
+export default function Hero({ onOpenTerminal }: HeroProps) {
   const { personal, stats } = portfolioData;
 
   return (
@@ -153,7 +157,38 @@ export default function Hero() {
                   <Terminal size={14} color="var(--accent-cyan)" />
                   engineer-profile.ts
                 </div>
-                <div style={{ width: "30px" }} />
+
+                {onOpenTerminal && (
+                  <button
+                    onClick={onOpenTerminal}
+                    id="hero-launch-cli-btn"
+                    title="Open AmineOS Interactive Terminal"
+                    style={{
+                      display: "inline-flex",
+                      alignItems: "center",
+                      gap: "0.35rem",
+                      fontSize: "0.72rem",
+                      fontFamily: "var(--font-mono)",
+                      color: "var(--accent-emerald)",
+                      background: "rgba(16, 185, 129, 0.12)",
+                      border: "1px solid rgba(16, 185, 129, 0.3)",
+                      padding: "0.25rem 0.6rem",
+                      borderRadius: "var(--radius-full)",
+                      cursor: "pointer",
+                      transition: "all 0.2s",
+                    }}
+                    onMouseEnter={(e) => {
+                      e.currentTarget.style.background = "rgba(16, 185, 129, 0.25)";
+                      e.currentTarget.style.borderColor = "var(--accent-emerald)";
+                    }}
+                    onMouseLeave={(e) => {
+                      e.currentTarget.style.background = "rgba(16, 185, 129, 0.12)";
+                      e.currentTarget.style.borderColor = "rgba(16, 185, 129, 0.3)";
+                    }}
+                  >
+                    Run CLI &gt;_
+                  </button>
+                )}
               </div>
 
               {/* Code Snippet */}
