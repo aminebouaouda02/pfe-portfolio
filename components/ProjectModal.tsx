@@ -2,6 +2,7 @@
 
 import React, { useEffect } from "react";
 import { Project } from "@/data/portfolioData";
+import { useLanguage } from "@/context/LanguageContext";
 import { X, ExternalLink, CheckCircle2, Layers } from "lucide-react";
 import { GithubIcon } from "@/components/Icons";
 
@@ -11,6 +12,8 @@ interface ProjectModalProps {
 }
 
 export default function ProjectModal({ project, onClose }: ProjectModalProps) {
+  const { data } = useLanguage();
+
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === "Escape") onClose();
@@ -97,7 +100,7 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
           <span className="badge-pill" style={{ textTransform: "capitalize" }}>
             <Layers size={13} /> {project.category}
           </span>
-          {project.featured && <span className="badge-pill status">Featured</span>}
+          {project.featured && <span className="badge-pill status">{data.ui.projects.featuredBadge}</span>}
         </div>
 
         <h2 style={{ fontSize: "1.85rem", marginBottom: "1rem" }}>{project.title}</h2>
@@ -109,7 +112,7 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
         {/* Highlights */}
         <div style={{ marginBottom: "1.8rem" }}>
           <h4 style={{ fontSize: "0.95rem", textTransform: "uppercase", letterSpacing: "0.08em", color: "var(--accent-cyan)", marginBottom: "0.8rem" }}>
-            Key Technical Highlights
+            {data.ui.projects.keyHighlights}
           </h4>
           <ul style={{ listStyle: "none", display: "flex", flexDirection: "column", gap: "0.6rem" }}>
             {project.highlights.map((highlight, idx) => (
@@ -124,7 +127,7 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
         {/* Tags */}
         <div style={{ marginBottom: "2rem" }}>
           <h4 style={{ fontSize: "0.85rem", textTransform: "uppercase", letterSpacing: "0.08em", color: "var(--text-dim)", marginBottom: "0.7rem" }}>
-            Technologies &amp; Architecture
+            {data.ui.projects.techArchitecture}
           </h4>
           <div style={{ display: "flex", flexWrap: "wrap", gap: "0.5rem" }}>
             {project.tags.map((tag) => (
@@ -145,7 +148,7 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
               className="btn-primary"
               id="modal-live-demo-btn"
             >
-              Open Live Demo <ExternalLink size={16} />
+              {data.ui.projects.liveDemoBtn} <ExternalLink size={16} />
             </a>
           )}
           {project.githubUrl && (
@@ -156,7 +159,7 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
               className="btn-secondary"
               id="modal-github-btn"
             >
-              <GithubIcon size={16} /> Source Code
+              <GithubIcon size={16} /> {data.ui.projects.sourceCodeBtn}
             </a>
           )}
         </div>

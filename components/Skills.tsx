@@ -1,11 +1,11 @@
 "use client";
 
-import React from "react";
-import { portfolioData } from "@/data/portfolioData";
+import { useLanguage } from "@/context/LanguageContext";
 import { Layout, Server, Database, Terminal, Cpu } from "lucide-react";
 
 export default function Skills() {
-  const { skillCategories } = portfolioData;
+  const { data } = useLanguage();
+  const { skillCategories, ui } = data;
 
   const getIcon = (iconName: string) => {
     switch (iconName) {
@@ -27,12 +27,12 @@ export default function Skills() {
       <div className="container">
         {/* Section Header */}
         <div className="section-header">
-          <div className="section-tag">Technical Competencies</div>
+          <div className="section-tag">{ui.skills.tag}</div>
           <h2 className="section-title">
-            Skills &amp; <span className="gradient-text">Technologies</span>
+            {ui.skills.title} <span className="gradient-text">{ui.skills.titleAccent}</span>
           </h2>
           <p className="section-subtitle">
-            A comprehensive overview of my toolchain across modern frontend frameworks, backend architecture, and data engineering.
+            {ui.skills.subtitle}
           </p>
         </div>
 
@@ -75,7 +75,7 @@ export default function Skills() {
                 <div>
                   <h3 style={{ fontSize: "1.15rem", fontWeight: 700 }}>{cat.title}</h3>
                   <span style={{ fontSize: "0.8rem", color: "var(--text-dim)" }}>
-                    {cat.skills.length} core competencies
+                    {cat.skills.length} {ui.skills.coreCount}
                   </span>
                 </div>
               </div>

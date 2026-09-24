@@ -1,11 +1,11 @@
 "use client";
 
-import React from "react";
-import { portfolioData } from "@/data/portfolioData";
+import { useLanguage } from "@/context/LanguageContext";
 import { Award, CheckCircle2, ShieldCheck, Sparkles, ExternalLink } from "lucide-react";
 
 export default function Certifications() {
-  const { certifications } = portfolioData;
+  const { data } = useLanguage();
+  const { certifications, ui } = data;
 
   if (!certifications || certifications.length === 0) return null;
 
@@ -14,12 +14,12 @@ export default function Certifications() {
       <div className="container">
         {/* Section Header */}
         <div className="section-header">
-          <div className="section-tag">Accreditations &amp; Honors</div>
+          <div className="section-tag">{ui.certifications.tag}</div>
           <h2 className="section-title">
-            Certifications &amp; <span className="gradient-text">Specializations</span>
+            {ui.certifications.title} <span className="gradient-text">{ui.certifications.titleAccent}</span>
           </h2>
           <p className="section-subtitle">
-            Formal engineering credentials and verified competencies in distributed Big Data, machine learning pipelines, and IoT systems.
+            {ui.certifications.subtitle}
           </p>
         </div>
 

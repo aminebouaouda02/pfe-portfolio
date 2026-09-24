@@ -1,36 +1,47 @@
 "use client";
 
-import React, { useState, useEffect, useRef } from "react";
-import { portfolioData } from "@/data/portfolioData";
-import { Terminal, X, Minimize2, Maximize2, Sparkles, Send } from "lucide-react";
+import React, { useState, useRef, useEffect } from "react";
+import { useLanguage } from "@/context/LanguageContext";
+import { Terminal, X } from "lucide-react";
 
 interface TerminalDrawerProps {
   isOpen: boolean;
   onClose: () => void;
 }
 
+interface TerminalHistoryItem {
+  command?: string;
+  output: string | React.ReactNode;
+  isError?: boolean;
+}
+
 export default function TerminalDrawer({ isOpen, onClose }: TerminalDrawerProps) {
+  const { data, locale } = useLanguage();
   const [inputVal, setInputVal] = useState("");
-  const [history, setHistory] = useState<
-    { command?: string; output: string | React.ReactNode; isError?: boolean }[]
-  >([
-    {
-      output: (
-        <div>
-          <span style={{ color: "var(--accent-cyan)", fontWeight: 700 }}>
-            AmineOS Shell v2.4 (ENSAM Casablanca BDIoT Edition)
-          </span>
-          <br />
-          <span style={{ color: "var(--text-muted)", fontSize: "0.85rem" }}>
-            Welcome! Type <span style={{ color: "var(--accent-emerald)" }}>help</span> to list available commands.
-          </span>
-        </div>
-      ),
-    },
-  ]);
+  const [history, setHistory] = useState<TerminalHistoryItem[]>([]);
 
   const terminalEndRef = useRef<HTMLDivElement | null>(null);
   const inputRef = useRef<HTMLInputElement | null>(null);
+
+  useEffect(() => {
+    setHistory([
+      {
+        output: (
+          <div>
+            <span style={{ color: "var(--accent-cyan)", fontWeight: 700 }}>
+              {data.ui.terminal.welcomeTitle}
+            </span>
+            <br />
+            <span style={{ color: "var(--text-muted)", fontSize: "0.85rem" }}>
+              {data.ui.terminal.welcomeSubtitle}{" "}
+              <span style={{ color: "var(--accent-emerald)" }}>help</span>{" "}
+              {locale === "fr" ? "pour afficher les commandes disponibles." : "to list available commands."}
+            </span>
+          </div>
+        ),
+      },
+    ]);
+  }, [locale, data.ui.terminal]);
 
   useEffect(() => {
     if (isOpen) {
@@ -55,23 +66,25 @@ export default function TerminalDrawer({ isOpen, onClose }: TerminalDrawerProps)
       case "help":
         output = (
           <div style={{ lineHeight: 1.6 }}>
-            <span style={{ color: "var(--accent-cyan)", fontWeight: 600 }}>AVAILABLE COMMANDS:</span>
+            <span style={{ color: "var(--accent-cyan)", fontWeight: 600 }}>
+              {data.ui.terminal.commandsTitle}
+            </span>
             <br />
-            • <strong style={{ color: "#38bdf8" }}>about</strong> : Personal bio &amp; current focus
+            • <strong style={{ color: "#38bdf8" }}>about</strong> : {data.ui.terminal.cmdAbout}
             <br />
-            • <strong style={{ color: "#38bdf8" }}>ensam</strong> : Master&apos;s studies in Big Data &amp; IoT details
+            • <strong style={{ color: "#38bdf8" }}>ensam</strong> : {data.ui.terminal.cmdEnsam}
             <br />
-            • <strong style={{ color: "#38bdf8" }}>skills</strong> : Technical stack and engineering competencies
+            • <strong style={{ color: "#38bdf8" }}>skills</strong> : {data.ui.terminal.cmdSkills}
             <br />
-            • <strong style={{ color: "#38bdf8" }}>projects</strong> : Showcase of production and research projects
+            • <strong style={{ color: "#38bdf8" }}>projects</strong> : {data.ui.terminal.cmdProjects}
             <br />
-            • <strong style={{ color: "#38bdf8" }}>hadoop</strong> : Query virtualized Hadoop/Spark cluster telemetry
+            • <strong style={{ color: "#38bdf8" }}>hadoop</strong> : {data.ui.terminal.cmdHadoop}
             <br />
-            • <strong style={{ color: "#38bdf8" }}>contact</strong> : Get direct contact links (Email, LinkedIn, GitHub)
+            • <strong style={{ color: "#38bdf8" }}>contact</strong> : {data.ui.terminal.cmdContact}
             <br />
-            • <strong style={{ color: "#38bdf8" }}>clear</strong> : Clear the terminal screen
+            • <strong style={{ color: "#38bdf8" }}>clear</strong> : {data.ui.terminal.cmdClear}
             <br />
-            • <strong style={{ color: "#38bdf8" }}>exit</strong> : Close terminal
+            • <strong style={{ color: "#38bdf8" }}>exit</strong> : {data.ui.terminal.cmdExit}
           </div>
         );
         break;
@@ -79,9 +92,9 @@ export default function TerminalDrawer({ isOpen, onClose }: TerminalDrawerProps)
       case "about":
         output = (
           <div>
-            <strong>{portfolioData.personal.name}</strong> — {portfolioData.personal.role}
+            <strong>{data.personal.name}</strong> — {data.personal.role}
             <br />
-            <span style={{ color: "var(--text-muted)" }}>{portfolioData.personal.bio}</span>
+            <span style={{ color: "var(--text-muted)" }}>{data.personal.bio}</span>
           </div>
         );
         break;
@@ -96,7 +109,7 @@ export default function TerminalDrawer({ isOpen, onClose }: TerminalDrawerProps)
             Master en Big Data &amp; Internet of Things (BDIoT).
             <br />
             <span style={{ color: "var(--text-muted)" }}>
-              Specialization: Distributed Computing, Hadoop ecosystems, Spark, Kafka, MLOps, and Embedded IoT.
+              {data.ui.terminal.ensamSpecialization}
             </span>
           </div>
         );
@@ -105,7 +118,9 @@ export default function TerminalDrawer({ isOpen, onClose }: TerminalDrawerProps)
       case "skills":
         output = (
           <div>
-            <span style={{ color: "var(--accent-cyan)", fontWeight: 600 }}>CORE COMPETENCY MATRIX:</span>
+            <span style={{ color: "var(--accent-cyan)", fontWeight: 600 }}>
+              {data.ui.terminal.matrixTitle}
+            </span>
             <br />
             📁 Big Data: Hadoop (HDFS, YARN), Apache Spark, Kafka, NoSQL, PostgreSQL
             <br />
@@ -121,15 +136,14 @@ export default function TerminalDrawer({ isOpen, onClose }: TerminalDrawerProps)
       case "projects":
         output = (
           <div>
-            <span style={{ color: "var(--accent-emerald)", fontWeight: 600 }}>FEATURED REPOSITORIES:</span>
-            <br />
-            1. <strong>Big Data Distributed Architecture</strong> (Hadoop + HDFS + Docker)
-            <br />
-            2. <strong>Automated Greenhouse Irrigation System</strong> (Arduino IoT + Solar)
-            <br />
-            3. <strong>HR Mobile Management App (PFE)</strong> (Flutter + Laravel REST API)
-            <br />
-            4. <strong>Simulation Ligne Industrielle</strong> (Real-time Industrial Simulator)
+            <span style={{ color: "var(--accent-emerald)", fontWeight: 600 }}>
+              {data.ui.terminal.featuredTitle}
+            </span>
+            {data.projects.slice(0, 4).map((p, idx) => (
+              <div key={p.id}>
+                {idx + 1}. <strong>{p.title}</strong> ({p.tags.slice(0, 3).join(", ")})
+              </div>
+            ))}
           </div>
         );
         break;
@@ -153,11 +167,11 @@ export default function TerminalDrawer({ isOpen, onClose }: TerminalDrawerProps)
       case "contact":
         output = (
           <div>
-            📧 Email: {portfolioData.personal.email}
+            📧 Email: {data.personal.email}
             <br />
-            💼 LinkedIn: {portfolioData.personal.linkedin}
+            💼 LinkedIn: {data.personal.linkedin}
             <br />
-            🐙 GitHub: {portfolioData.personal.github}
+            🐙 GitHub: {data.personal.github}
           </div>
         );
         break;
@@ -175,13 +189,13 @@ export default function TerminalDrawer({ isOpen, onClose }: TerminalDrawerProps)
       default:
         output = (
           <span style={{ color: "#f87171" }}>
-            Command not recognized: &quot;{cmd}&quot;. Type &quot;help&quot; for a list of available commands.
+            {data.ui.terminal.cmdNotFound}: &quot;{cmd}&quot;. Type &quot;help&quot; for a list of available commands.
           </span>
         );
         break;
     }
 
-    setHistory((prev) => [...prev, { command: cmd, output }]);
+    setHistory((prev: TerminalHistoryItem[]) => [...prev, { command: cmd, output }]);
     setInputVal("");
   };
 
@@ -278,7 +292,7 @@ export default function TerminalDrawer({ isOpen, onClose }: TerminalDrawerProps)
             lineHeight: 1.6,
           }}
         >
-          {history.map((item, idx) => (
+          {history.map((item: TerminalHistoryItem, idx: number) => (
             <div key={idx} style={{ marginBottom: "0.9rem" }}>
               {item.command && (
                 <div style={{ color: "var(--accent-cyan)", marginBottom: "0.25rem" }}>
@@ -301,7 +315,7 @@ export default function TerminalDrawer({ isOpen, onClose }: TerminalDrawerProps)
               type="text"
               value={inputVal}
               onChange={(e) => setInputVal(e.target.value)}
-              placeholder="type 'help'..."
+              placeholder={data.ui.terminal.inputPlaceholder}
               style={{
                 flex: 1,
                 background: "transparent",

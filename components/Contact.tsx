@@ -1,12 +1,13 @@
 "use client";
 
 import React, { useState } from "react";
-import { portfolioData } from "@/data/portfolioData";
+import { useLanguage } from "@/context/LanguageContext";
 import { Mail, Copy, Check, Send, MapPin, MessageSquare } from "lucide-react";
 import { GithubIcon, LinkedinIcon } from "@/components/Icons";
 
 export default function Contact() {
-  const { personal } = portfolioData;
+  const { data } = useLanguage();
+  const { personal, ui } = data;
   const [copied, setCopied] = useState(false);
   const [formStatus, setFormStatus] = useState<"idle" | "submitting" | "sent">("idle");
   const [formData, setFormData] = useState({ name: "", email: "", message: "" });
@@ -32,12 +33,12 @@ export default function Contact() {
       <div className="container">
         {/* Section Header */}
         <div className="section-header">
-          <div className="section-tag">Let&apos;s Connect</div>
+          <div className="section-tag">{ui.contact.tag}</div>
           <h2 className="section-title">
-            Get In <span className="gradient-text">Touch</span>
+            {ui.contact.title} <span className="gradient-text">{ui.contact.titleAccent}</span>
           </h2>
           <p className="section-subtitle">
-            Have a project in mind, an engineering opportunity, or want to collaborate? My inbox is always open.
+            {ui.contact.subtitle}
           </p>
         </div>
 
@@ -52,9 +53,9 @@ export default function Contact() {
                 marginBottom: "1.5rem",
               }}
             >
-              <h3 style={{ fontSize: "1.25rem", marginBottom: "0.8rem" }}>Direct Contact</h3>
+              <h3 style={{ fontSize: "1.25rem", marginBottom: "0.8rem" }}>{ui.contact.directContactTitle}</h3>
               <p style={{ color: "var(--text-muted)", fontSize: "0.95rem", lineHeight: 1.6, marginBottom: "1.8rem" }}>
-                Feel free to email me directly or copy my email address with one click.
+                {ui.contact.directContactDesc}
               </p>
 
               {/* Copy Email Button Box */}
@@ -104,11 +105,11 @@ export default function Contact() {
                 >
                   {copied ? (
                     <>
-                      <Check size={14} /> Copied!
+                      <Check size={14} /> {ui.contact.copiedBtn}
                     </>
                   ) : (
                     <>
-                      <Copy size={14} /> Copy
+                      <Copy size={14} /> {ui.contact.copyBtn}
                     </>
                   )}
                 </button>
@@ -136,7 +137,7 @@ export default function Contact() {
                     <GithubIcon size={18} color="var(--text-muted)" />
                     <span style={{ fontSize: "0.92rem", fontWeight: 500 }}>GitHub</span>
                   </div>
-                  <span style={{ fontSize: "0.82rem", color: "var(--accent-cyan)" }}>View Repositories &rarr;</span>
+                  <span style={{ fontSize: "0.82rem", color: "var(--accent-cyan)" }}>{ui.contact.viewRepos}</span>
                 </a>
 
                 <a
@@ -159,7 +160,7 @@ export default function Contact() {
                     <LinkedinIcon size={18} color="var(--text-muted)" />
                     <span style={{ fontSize: "0.92rem", fontWeight: 500 }}>LinkedIn</span>
                   </div>
-                  <span style={{ fontSize: "0.82rem", color: "var(--accent-purple)" }}>Connect &rarr;</span>
+                  <span style={{ fontSize: "0.82rem", color: "var(--accent-purple)" }}>{ui.contact.connectLinkedin}</span>
                 </a>
 
                 <div
@@ -190,9 +191,9 @@ export default function Contact() {
               borderRadius: "var(--radius-lg)",
             }}
           >
-            <h3 style={{ fontSize: "1.25rem", marginBottom: "0.5rem" }}>Send a Message</h3>
+            <h3 style={{ fontSize: "1.25rem", marginBottom: "0.5rem" }}>{ui.contact.sendMessageTitle}</h3>
             <p style={{ color: "var(--text-muted)", fontSize: "0.92rem", marginBottom: "1.8rem" }}>
-              Leave a note below and I will respond to your inquiry as soon as possible.
+              {ui.contact.sendMessageDesc}
             </p>
 
             <form onSubmit={handleSubmit} style={{ display: "flex", flexDirection: "column", gap: "1.25rem" }}>
@@ -201,13 +202,13 @@ export default function Contact() {
                   htmlFor="contact-name"
                   style={{ display: "block", fontSize: "0.82rem", fontWeight: 600, color: "var(--text-muted)", marginBottom: "0.4rem" }}
                 >
-                  Your Name
+                  {ui.contact.nameLabel}
                 </label>
                 <input
                   id="contact-name"
                   type="text"
                   required
-                  placeholder="Jane Smith"
+                  placeholder={ui.contact.namePlaceholder}
                   value={formData.name}
                   onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                   style={{
@@ -228,13 +229,13 @@ export default function Contact() {
                   htmlFor="contact-email"
                   style={{ display: "block", fontSize: "0.82rem", fontWeight: 600, color: "var(--text-muted)", marginBottom: "0.4rem" }}
                 >
-                  Your Email
+                  {ui.contact.emailLabel}
                 </label>
                 <input
                   id="contact-email"
                   type="email"
                   required
-                  placeholder="jane@example.com"
+                  placeholder={ui.contact.emailPlaceholder}
                   value={formData.email}
                   onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                   style={{
@@ -255,13 +256,13 @@ export default function Contact() {
                   htmlFor="contact-message"
                   style={{ display: "block", fontSize: "0.82rem", fontWeight: 600, color: "var(--text-muted)", marginBottom: "0.4rem" }}
                 >
-                  Message
+                  {ui.contact.messageLabel}
                 </label>
                 <textarea
                   id="contact-message"
                   required
                   rows={4}
-                  placeholder="Hello! I would love to discuss a project..."
+                  placeholder={ui.contact.messagePlaceholder}
                   value={formData.message}
                   onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                   style={{
@@ -286,12 +287,12 @@ export default function Contact() {
                 style={{ width: "100%", marginTop: "0.5rem" }}
               >
                 {formStatus === "submitting" ? (
-                  "Sending..."
+                  ui.contact.submittingBtn
                 ) : formStatus === "sent" ? (
-                  "Message Sent Successfully! ✓"
+                  ui.contact.submittedBtn
                 ) : (
                   <>
-                    Send Message <Send size={16} />
+                    {ui.contact.submitBtn} <Send size={16} />
                   </>
                 )}
               </button>

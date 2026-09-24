@@ -1,23 +1,23 @@
 "use client";
 
-import React from "react";
-import { portfolioData } from "@/data/portfolioData";
+import { useLanguage } from "@/context/LanguageContext";
 import { Briefcase, GraduationCap, MapPin, Calendar } from "lucide-react";
 
 export default function Timeline() {
-  const { timeline } = portfolioData;
+  const { data } = useLanguage();
+  const { timeline, ui } = data;
 
   return (
     <section id="timeline" className="section-wrapper">
       <div className="container">
         {/* Section Header */}
         <div className="section-header">
-          <div className="section-tag">Career Journey</div>
+          <div className="section-tag">{ui.timeline.tag}</div>
           <h2 className="section-title">
-            Experience &amp; <span className="gradient-text">Education</span>
+            {ui.timeline.title} <span className="gradient-text">{ui.timeline.titleAccent}</span>
           </h2>
           <p className="section-subtitle">
-            A chronological timeline of professional experience, engineering roles, and academic foundation.
+            {ui.timeline.subtitle}
           </p>
         </div>
 

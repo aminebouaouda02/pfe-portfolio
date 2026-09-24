@@ -1,7 +1,6 @@
 "use client";
 
-import React from "react";
-import { portfolioData } from "@/data/portfolioData";
+import { useLanguage } from "@/context/LanguageContext";
 import { ArrowDown, ExternalLink, Sparkles, Mail, Terminal, CheckCircle2, FileDown } from "lucide-react";
 import { GithubIcon, LinkedinIcon } from "@/components/Icons";
 
@@ -10,7 +9,8 @@ interface HeroProps {
 }
 
 export default function Hero({ onOpenTerminal }: HeroProps) {
-  const { personal, stats } = portfolioData;
+  const { data, locale } = useLanguage();
+  const { personal, stats, ui } = data;
 
   return (
     <section
@@ -43,8 +43,8 @@ export default function Hero({ onOpenTerminal }: HeroProps) {
                 lineHeight: 1.15,
               }}
             >
-              Engineering Big Data, AI &amp;{" "}
-              <span className="gradient-text">Intelligent IoT Systems</span>
+              {ui.hero.headlinePrefix}{" "}
+              <span className="gradient-text">{ui.hero.headlineAccent}</span>
             </h1>
 
             {/* Bio Paragraph */}
@@ -57,14 +57,14 @@ export default function Hero({ onOpenTerminal }: HeroProps) {
                 marginBottom: "2.2rem",
               }}
             >
-              Hi, I&apos;m <strong style={{ color: "var(--text-main)" }}>{personal.name}</strong> — {personal.role}.
+              {ui.hero.greeting} <strong style={{ color: "var(--text-main)" }}>{personal.name}</strong> — {personal.role}.
               {" "}{personal.bio}
             </p>
 
             {/* CTAs */}
             <div style={{ display: "flex", flexWrap: "wrap", gap: "1rem", marginBottom: "3rem" }}>
               <a href="#projects" id="hero-explore-projects-btn" className="btn-primary">
-                Explore Projects <ArrowDown size={17} />
+                {ui.hero.exploreProjects} <ArrowDown size={17} />
               </a>
 
               <a
@@ -73,11 +73,11 @@ export default function Hero({ onOpenTerminal }: HeroProps) {
                 id="hero-download-cv-btn"
                 className="btn-secondary"
               >
-                <FileDown size={17} /> Download CV
+                <FileDown size={17} /> {ui.hero.downloadCv}
               </a>
 
               <a href="#contact" id="hero-contact-btn" className="btn-secondary">
-                Get In Touch <Mail size={17} />
+                {ui.hero.getInTouch} <Mail size={17} />
               </a>
 
               <a
@@ -94,7 +94,7 @@ export default function Hero({ onOpenTerminal }: HeroProps) {
 
             {/* Social quick links */}
             <div style={{ display: "flex", alignItems: "center", gap: "1.5rem", color: "var(--text-dim)", fontSize: "0.9rem" }}>
-              <span>Follow me:</span>
+              <span>{ui.hero.followMe}</span>
               <a
                 href={personal.linkedin}
                 target="_blank"
@@ -186,7 +186,7 @@ export default function Hero({ onOpenTerminal }: HeroProps) {
                       e.currentTarget.style.borderColor = "rgba(16, 185, 129, 0.3)";
                     }}
                   >
-                    Run CLI &gt;_
+                    {ui.hero.runCliBtn}
                   </button>
                 )}
               </div>
@@ -212,7 +212,7 @@ export default function Hero({ onOpenTerminal }: HeroProps) {
                   {"\n"}  readyForImpact: <span style={{ color: "#34d399" }}>true</span>,
                   {"\n"}&#125;;
                   {"\n\n"}
-                  <span style={{ color: "#64748b" }}>// Scalable distributed intelligence</span>
+                  <span style={{ color: "#64748b" }}>// {ui.hero.codeMission}</span>
                   {"\n"}
                   <span style={{ color: "#f472b6" }}>export default function</span>{" "}
                   <span style={{ color: "#818cf8" }}>architectSolutions</span>() &#123;
@@ -233,16 +233,16 @@ export default function Hero({ onOpenTerminal }: HeroProps) {
                 }}
               >
                 <div style={{ display: "flex", alignItems: "center", gap: "0.5rem", fontSize: "0.8rem", color: "var(--text-muted)" }}>
-                  <CheckCircle2 size={16} color="var(--accent-cyan)" /> Distributed Systems
+                  <CheckCircle2 size={16} color="var(--accent-cyan)" /> {ui.hero.badgeDistributed}
                 </div>
                 <div style={{ display: "flex", alignItems: "center", gap: "0.5rem", fontSize: "0.8rem", color: "var(--text-muted)" }}>
-                  <CheckCircle2 size={16} color="var(--accent-purple)" /> Machine Learning
+                  <CheckCircle2 size={16} color="var(--accent-purple)" /> {ui.hero.badgeML}
                 </div>
                 <div style={{ display: "flex", alignItems: "center", gap: "0.5rem", fontSize: "0.8rem", color: "var(--text-muted)" }}>
-                  <CheckCircle2 size={16} color="var(--accent-emerald)" /> IoT Automation
+                  <CheckCircle2 size={16} color="var(--accent-emerald)" /> {ui.hero.badgeIoT}
                 </div>
                 <div style={{ display: "flex", alignItems: "center", gap: "0.5rem", fontSize: "0.8rem", color: "var(--text-muted)" }}>
-                  <CheckCircle2 size={16} color="var(--accent-blue)" /> Full-Stack Architecture
+                  <CheckCircle2 size={16} color="var(--accent-blue)" /> {ui.hero.badgeFullstack}
                 </div>
               </div>
             </div>

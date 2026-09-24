@@ -1,11 +1,13 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import { portfolioData } from "@/data/portfolioData";
+import { useLanguage } from "@/context/LanguageContext";
+import LanguageToggle from "@/components/LanguageToggle";
 import { Terminal, Menu, X, ArrowUpRight } from "lucide-react";
 import { GithubIcon } from "@/components/Icons";
 
 export default function Navbar() {
+  const { data } = useLanguage();
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
@@ -18,12 +20,12 @@ export default function Navbar() {
   }, []);
 
   const navLinks = [
-    { label: "About", href: "#about" },
-    { label: "Projects", href: "#projects" },
-    { label: "Skills", href: "#skills" },
-    { label: "Certifications", href: "#certifications" },
-    { label: "Timeline", href: "#timeline" },
-    { label: "Contact", href: "#contact" },
+    { label: data.ui.nav.about, href: "#about" },
+    { label: data.ui.nav.projects, href: "#projects" },
+    { label: data.ui.nav.skills, href: "#skills" },
+    { label: data.ui.nav.certifications, href: "#certifications" },
+    { label: data.ui.nav.timeline, href: "#timeline" },
+    { label: data.ui.nav.contact, href: "#contact" },
   ];
 
   return (
@@ -70,7 +72,7 @@ export default function Navbar() {
             <Terminal size={20} color="#fff" />
           </div>
           <span>
-            {portfolioData.personal.name.split(" ")[0]}
+            {data.personal.name.split(" ")[0]}
             <span style={{ color: "var(--accent-cyan)" }}>.</span>
           </span>
         </a>
@@ -99,9 +101,11 @@ export default function Navbar() {
         </nav>
 
         {/* Right CTA */}
-        <div style={{ display: "flex", alignItems: "center", gap: "1rem" }}>
+        <div style={{ display: "flex", alignItems: "center", gap: "0.85rem" }}>
+          <LanguageToggle />
+
           <a
-            href={portfolioData.personal.github}
+            href={data.personal.github}
             target="_blank"
             rel="noopener noreferrer"
             id="nav-github-btn"
@@ -128,7 +132,7 @@ export default function Navbar() {
             className="btn-primary"
             style={{ padding: "0.55rem 1.25rem", fontSize: "0.85rem", display: "none" }}
           >
-            Let&apos;s Connect <ArrowUpRight size={15} />
+            {data.ui.nav.connect} <ArrowUpRight size={15} />
           </a>
 
           {/* Mobile hamburger */}
@@ -189,7 +193,7 @@ export default function Navbar() {
             className="btn-primary"
             style={{ width: "100%", marginTop: "0.5rem" }}
           >
-            Let&apos;s Connect <ArrowUpRight size={18} />
+            {data.ui.nav.connect} <ArrowUpRight size={18} />
           </a>
         </div>
       )}

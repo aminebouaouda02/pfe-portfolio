@@ -1,39 +1,41 @@
 "use client";
 
 import React, { useState } from "react";
-import { portfolioData, Project } from "@/data/portfolioData";
+import { useLanguage } from "@/context/LanguageContext";
+import { Project } from "@/data/portfolioData";
 import ProjectModal from "./ProjectModal";
 import { ExternalLink, Info, Sparkles, FolderGit2 } from "lucide-react";
 import { GithubIcon } from "@/components/Icons";
 
 export default function Projects() {
+  const { data } = useLanguage();
   const [activeCategory, setActiveCategory] = useState<string>("all");
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
 
   const categories = [
-    { id: "all", label: "All Projects" },
-    { id: "data", label: "Big Data & ML" },
-    { id: "iot", label: "IoT & Embedded" },
-    { id: "systems", label: "Systems & Simulation" },
-    { id: "fullstack", label: "Full-Stack Web" },
+    { id: "all", label: data.ui.projects.filterAll },
+    { id: "data", label: data.ui.projects.filterData },
+    { id: "iot", label: data.ui.projects.filterIot },
+    { id: "systems", label: data.ui.projects.filterSystems },
+    { id: "fullstack", label: data.ui.projects.filterFullstack },
   ];
 
   const filteredProjects =
     activeCategory === "all"
-      ? portfolioData.projects
-      : portfolioData.projects.filter((p) => p.category === activeCategory);
+      ? data.projects
+      : data.projects.filter((p) => p.category === activeCategory);
 
   return (
     <section id="projects" className="section-wrapper">
       <div className="container">
         {/* Section Header */}
         <div className="section-header">
-          <div className="section-tag">Featured Portfolio</div>
+          <div className="section-tag">{data.ui.projects.tag}</div>
           <h2 className="section-title">
-            Engineering <span className="gradient-text">Showcase</span>
+            {data.ui.projects.title} <span className="gradient-text">{data.ui.projects.titleAccent}</span>
           </h2>
           <p className="section-subtitle">
-            A selection of production systems, real-time digital simulations, and distributed architecture projects.
+            {data.ui.projects.subtitle}
           </p>
         </div>
 
@@ -119,7 +121,7 @@ export default function Projects() {
                         fontWeight: 600,
                       }}
                     >
-                      <Sparkles size={14} /> Featured
+                      <Sparkles size={14} /> {data.ui.projects.featuredBadge}
                     </span>
                   )}
                 </div>
@@ -188,7 +190,7 @@ export default function Projects() {
                     transition: "opacity 0.2s",
                   }}
                 >
-                  <Info size={15} /> Case Study
+                  <Info size={15} /> {data.ui.projects.caseStudyBtn}
                 </button>
 
                 <div style={{ display: "flex", alignItems: "center", gap: "0.8rem" }}>
@@ -219,7 +221,7 @@ export default function Projects() {
                       className="btn-primary"
                       style={{ padding: "0.45rem 1rem", fontSize: "0.82rem" }}
                     >
-                      Live Demo <ExternalLink size={14} />
+                      {data.ui.projects.liveDemoBtn} <ExternalLink size={14} />
                     </a>
                   )}
                 </div>

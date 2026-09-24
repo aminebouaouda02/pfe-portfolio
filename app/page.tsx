@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import { LanguageProvider } from "@/context/LanguageContext";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import Projects from "@/components/Projects";
@@ -13,7 +14,7 @@ import ParticleBackground from "@/components/ParticleBackground";
 import TerminalDrawer from "@/components/TerminalDrawer";
 import { Terminal } from "lucide-react";
 
-export default function Home() {
+function PortfolioContent() {
   const [terminalOpen, setTerminalOpen] = useState(false);
 
   return (
@@ -82,5 +83,13 @@ export default function Home() {
       {/* Interactive Terminal Drawer Emulator */}
       <TerminalDrawer isOpen={terminalOpen} onClose={() => setTerminalOpen(false)} />
     </>
+  );
+}
+
+export default function Home() {
+  return (
+    <LanguageProvider>
+      <PortfolioContent />
+    </LanguageProvider>
   );
 }

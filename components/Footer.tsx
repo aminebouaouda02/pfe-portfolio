@@ -1,10 +1,10 @@
 "use client";
 
-import React from "react";
-import { portfolioData } from "@/data/portfolioData";
-import { ArrowUp, Heart, Terminal } from "lucide-react";
+import { useLanguage } from "@/context/LanguageContext";
+import { ArrowUp, Terminal } from "lucide-react";
 
 export default function Footer() {
+  const { data } = useLanguage();
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
@@ -44,17 +44,18 @@ export default function Footer() {
               <Terminal size={17} color="#fff" />
             </div>
             <span style={{ fontWeight: 700, fontSize: "1.05rem" }}>
-              {portfolioData.personal.name}
+              {data.personal.name}
             </span>
           </div>
 
           {/* Nav links */}
           <div style={{ display: "flex", gap: "1.5rem", flexWrap: "wrap", fontSize: "0.88rem", color: "var(--text-muted)" }}>
-            <a href="#about" style={{ transition: "color 0.2s" }} onMouseEnter={(e) => (e.currentTarget.style.color = "#fff")} onMouseLeave={(e) => (e.currentTarget.style.color = "var(--text-muted)")}>About</a>
-            <a href="#projects" style={{ transition: "color 0.2s" }} onMouseEnter={(e) => (e.currentTarget.style.color = "#fff")} onMouseLeave={(e) => (e.currentTarget.style.color = "var(--text-muted)")}>Projects</a>
-            <a href="#skills" style={{ transition: "color 0.2s" }} onMouseEnter={(e) => (e.currentTarget.style.color = "#fff")} onMouseLeave={(e) => (e.currentTarget.style.color = "var(--text-muted)")}>Skills</a>
-            <a href="#timeline" style={{ transition: "color 0.2s" }} onMouseEnter={(e) => (e.currentTarget.style.color = "#fff")} onMouseLeave={(e) => (e.currentTarget.style.color = "var(--text-muted)")}>Timeline</a>
-            <a href="#contact" style={{ transition: "color 0.2s" }} onMouseEnter={(e) => (e.currentTarget.style.color = "#fff")} onMouseLeave={(e) => (e.currentTarget.style.color = "var(--text-muted)")}>Contact</a>
+            <a href="#about" style={{ transition: "color 0.2s" }} onMouseEnter={(e) => (e.currentTarget.style.color = "#fff")} onMouseLeave={(e) => (e.currentTarget.style.color = "var(--text-muted)")}>{data.ui.nav.about}</a>
+            <a href="#projects" style={{ transition: "color 0.2s" }} onMouseEnter={(e) => (e.currentTarget.style.color = "#fff")} onMouseLeave={(e) => (e.currentTarget.style.color = "var(--text-muted)")}>{data.ui.nav.projects}</a>
+            <a href="#skills" style={{ transition: "color 0.2s" }} onMouseEnter={(e) => (e.currentTarget.style.color = "#fff")} onMouseLeave={(e) => (e.currentTarget.style.color = "var(--text-muted)")}>{data.ui.nav.skills}</a>
+            <a href="#certifications" style={{ transition: "color 0.2s" }} onMouseEnter={(e) => (e.currentTarget.style.color = "#fff")} onMouseLeave={(e) => (e.currentTarget.style.color = "var(--text-muted)")}>{data.ui.nav.certifications}</a>
+            <a href="#timeline" style={{ transition: "color 0.2s" }} onMouseEnter={(e) => (e.currentTarget.style.color = "#fff")} onMouseLeave={(e) => (e.currentTarget.style.color = "var(--text-muted)")}>{data.ui.nav.timeline}</a>
+            <a href="#contact" style={{ transition: "color 0.2s" }} onMouseEnter={(e) => (e.currentTarget.style.color = "#fff")} onMouseLeave={(e) => (e.currentTarget.style.color = "var(--text-muted)")}>{data.ui.nav.contact}</a>
           </div>
 
           {/* Back to top button */}
@@ -84,7 +85,7 @@ export default function Footer() {
               e.currentTarget.style.borderColor = "var(--border-subtle)";
             }}
           >
-            Back to Top <ArrowUp size={14} />
+            {data.ui.footer.backToTop} <ArrowUp size={14} />
           </button>
         </div>
 
@@ -103,10 +104,10 @@ export default function Footer() {
           }}
         >
           <div>
-            &copy; {new Date().getFullYear()} {portfolioData.personal.name}. Built with Next.js &amp; TypeScript.
+            &copy; {new Date().getFullYear()} {data.personal.name}. {data.ui.footer.rights}
           </div>
           <div style={{ display: "flex", alignItems: "center", gap: "0.3rem" }}>
-            Engineered with high performance &amp; clean design
+            {data.ui.footer.tagline}
           </div>
         </div>
       </div>
