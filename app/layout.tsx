@@ -29,6 +29,13 @@ export const metadata: Metadata = {
     description: "Distributed Big Data architectures, machine learning pipelines, IoT systems, and high-performance software engineering.",
     siteName: "Amine Bouaouda Portfolio",
   },
+  icons: {
+    icon: [
+      { url: "/favicon.svg", type: "image/svg+xml" },
+    ],
+    shortcut: "/favicon.svg",
+    apple: "/favicon.svg",
+  },
 };
 
 export default function RootLayout({
@@ -40,6 +47,7 @@ export default function RootLayout({
     <html lang="en">
       <head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
       </head>
       <body>
         <div className="grid-overlay" aria-hidden="true" />

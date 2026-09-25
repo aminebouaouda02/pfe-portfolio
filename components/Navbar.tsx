@@ -7,7 +7,7 @@ import { Terminal, Menu, X, ArrowUpRight } from "lucide-react";
 import { GithubIcon } from "@/components/Icons";
 
 export default function Navbar() {
-  const { data } = useLanguage();
+  const { data, locale } = useLanguage();
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
@@ -23,6 +23,7 @@ export default function Navbar() {
     { label: data.ui.nav.about, href: "#about" },
     { label: data.ui.nav.now || "Now", href: "#now" },
     { label: data.ui.nav.projects, href: "#projects" },
+    { label: locale === "fr" ? "Lab IoT" : "IoT Lab", href: "#telemetry" },
     { label: data.ui.nav.skills, href: "#skills" },
     { label: data.ui.nav.certifications, href: "#certifications" },
     { label: data.ui.nav.timeline, href: "#timeline" },
