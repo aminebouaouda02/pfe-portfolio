@@ -3,7 +3,7 @@
 import React, { useEffect } from "react";
 import { Project } from "@/data/portfolioData";
 import { useLanguage } from "@/context/LanguageContext";
-import { X, ExternalLink, CheckCircle2, Layers } from "lucide-react";
+import { X, ExternalLink, CheckCircle2, Layers, Lightbulb } from "lucide-react";
 import { GithubIcon } from "@/components/Icons";
 
 interface ProjectModalProps {
@@ -105,9 +105,40 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
 
         <h2 style={{ fontSize: "1.85rem", marginBottom: "1rem" }}>{project.title}</h2>
 
-        <p style={{ color: "var(--text-muted)", fontSize: "1.05rem", lineHeight: 1.7, marginBottom: "1.8rem" }}>
+        <p style={{ color: "var(--text-muted)", fontSize: "1.05rem", lineHeight: 1.7, marginBottom: "1.5rem" }}>
           {project.description}
         </p>
+
+        {/* The Hardest Challenge / Behind the Build */}
+        {project.challenge && (
+          <div
+            style={{
+              background: "rgba(245, 158, 11, 0.08)",
+              border: "1px solid rgba(245, 158, 11, 0.25)",
+              borderRadius: "var(--radius-md)",
+              padding: "1.1rem 1.3rem",
+              marginBottom: "1.8rem",
+            }}
+          >
+            <div
+              style={{
+                display: "flex",
+                alignItems: "center",
+                gap: "0.5rem",
+                color: "var(--accent-amber)",
+                fontWeight: 700,
+                fontSize: "0.88rem",
+                marginBottom: "0.45rem",
+              }}
+            >
+              <Lightbulb size={16} />
+              <span>{data.ui.projects.challengeTitle}</span>
+            </div>
+            <p style={{ color: "var(--text-main)", fontSize: "0.92rem", lineHeight: 1.65, margin: 0 }}>
+              {project.challenge}
+            </p>
+          </div>
+        )}
 
         {/* Highlights */}
         <div style={{ marginBottom: "1.8rem" }}>

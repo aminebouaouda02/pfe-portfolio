@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import { LanguageProvider } from "@/context/LanguageContext";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
+import NowSection from "@/components/NowSection";
 import Projects from "@/components/Projects";
 import Skills from "@/components/Skills";
 import Certifications from "@/components/Certifications";
@@ -23,6 +24,7 @@ function PortfolioContent() {
       <Navbar />
       <main style={{ position: "relative", zIndex: 1 }}>
         <Hero onOpenTerminal={() => setTerminalOpen(true)} />
+        <NowSection />
         <Projects />
         <Skills />
         <Certifications />

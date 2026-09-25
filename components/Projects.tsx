@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import { useLanguage } from "@/context/LanguageContext";
 import { Project } from "@/data/portfolioData";
 import ProjectModal from "./ProjectModal";
-import { ExternalLink, Info, Sparkles, FolderGit2 } from "lucide-react";
+import { ExternalLink, Info, Sparkles, FolderGit2, Lightbulb } from "lucide-react";
 import { GithubIcon } from "@/components/Icons";
 
 export default function Projects() {
@@ -144,11 +144,44 @@ export default function Projects() {
                     color: "var(--text-muted)",
                     fontSize: "0.93rem",
                     lineHeight: 1.65,
-                    marginBottom: "1.5rem",
+                    marginBottom: project.challenge ? "1rem" : "1.5rem",
                   }}
                 >
                   {project.summary}
                 </p>
+
+                {/* Challenge Preview Callout */}
+                {project.challenge && (
+                  <div
+                    style={{
+                      background: "rgba(245, 158, 11, 0.07)",
+                      border: "1px solid rgba(245, 158, 11, 0.22)",
+                      borderRadius: "var(--radius-md)",
+                      padding: "0.75rem 0.95rem",
+                      marginBottom: "1.35rem",
+                      fontSize: "0.82rem",
+                      lineHeight: 1.5,
+                      display: "flex",
+                      alignItems: "flex-start",
+                      gap: "0.55rem",
+                    }}
+                  >
+                    <Lightbulb
+                      size={15}
+                      style={{
+                        flexShrink: 0,
+                        marginTop: "2px",
+                        color: "var(--accent-amber)",
+                      }}
+                    />
+                    <span style={{ color: "var(--text-secondary)" }}>
+                      <strong style={{ color: "var(--accent-amber)", fontWeight: 600 }}>
+                        {data.ui.projects.challengeTitle || "Behind the Build"}:
+                      </strong>{" "}
+                      {project.challenge}
+                    </span>
+                  </div>
+                )}
 
                 {/* Tags */}
                 <div

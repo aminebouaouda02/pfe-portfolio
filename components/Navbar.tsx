@@ -21,6 +21,7 @@ export default function Navbar() {
 
   const navLinks = [
     { label: data.ui.nav.about, href: "#about" },
+    { label: data.ui.nav.now || "Now", href: "#now" },
     { label: data.ui.nav.projects, href: "#projects" },
     { label: data.ui.nav.skills, href: "#skills" },
     { label: data.ui.nav.certifications, href: "#certifications" },

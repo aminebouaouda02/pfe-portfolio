@@ -12,6 +12,7 @@ export interface Project {
   githubUrl?: string;
   image?: string;
   highlights: string[];
+  challenge?: string;
 }
 
 export interface SkillCategory {
@@ -39,6 +40,27 @@ export interface Certification {
   skills: string[];
 }
 
+export interface NowItem {
+  name: string;
+  tag: string;
+}
+
+export interface NowData {
+  badge: string;
+  title: string;
+  titleAccent: string;
+  subtitle: string;
+  focusTitle: string;
+  focusDesc: string;
+  exploringTitle: string;
+  exploringItems: NowItem[];
+  readingTitle: string;
+  readingBook: string;
+  beyondTitle: string;
+  beyondItems: string[];
+  coffeeTeaNote: string;
+}
+
 export interface PortfolioData {
   personal: {
     name: string;
@@ -51,8 +73,13 @@ export interface PortfolioData {
     linkedin: string;
     bio: string;
     resumeUrl: string;
+    taglineGreeting: string;
+    avatar: string;
+    statusActivity: string;
+    motto: string;
   };
-  stats: { label: string; value: string }[];
+  now: NowData;
+  stats: { label: string; value: string; sub?: string }[];
   skillCategories: SkillCategory[];
   projects: Project[];
   timeline: TimelineItem[];
@@ -60,6 +87,7 @@ export interface PortfolioData {
   ui: {
     nav: {
       about: string;
+      now: string;
       projects: string;
       skills: string;
       certifications: string;
@@ -82,6 +110,8 @@ export interface PortfolioData {
       badgeIoT: string;
       badgeFullstack: string;
       runCliBtn: string;
+      liveClockCity: string;
+      viewNowBtn: string;
     };
     projects: {
       tag: string;
@@ -99,6 +129,7 @@ export interface PortfolioData {
       sourceCodeBtn: string;
       keyHighlights: string;
       techArchitecture: string;
+      challengeTitle: string;
     };
     skills: {
       tag: string;
@@ -179,15 +210,45 @@ export const portfolioData: Record<Locale, PortfolioData> = {
       email: "amine.bouaouda02@gmail.com",
       github: "https://github.com/aminebouaouda02",
       linkedin: "https://www.linkedin.com/in/amine-bouaouda-071503278/",
-      bio: "Master's student in Big Data & Internet of Things (BDIoT) at ENSAM Casablanca and aspiring AI Engineer. Passionate about architecting distributed Big Data platforms (Hadoop, Spark, Kafka), machine learning pipelines, IoT automation, and high-performance applications.",
+      bio: "Master's student in Big Data & Internet of Things (BDIoT) at ENSAM Casablanca and aspiring AI Engineer. My engineering journey started with tinkering on microcontrollers and grew into architecting distributed multi-node Big Data clusters (Hadoop, Spark, Kafka), machine learning pipelines, and embedded IoT systems.",
       resumeUrl: "/cv-amine-bouaouda.pdf",
+      taglineGreeting: "Salam! I'm",
+      avatar: "/avatar.jpg",
+      statusActivity: "Usually coding, tuning Kafka streams, or brewing Moroccan mint tea",
+      motto: "Simplicity in design, resilience at distributed scale.",
+    },
+
+    now: {
+      badge: "Life & Momentum",
+      title: "What I'm Doing",
+      titleAccent: "Right Now",
+      subtitle: "A living snapshot of what I'm learning, building, and exploring beyond deadlines.",
+      focusTitle: "Master's Thesis & Distributed Stream Processing",
+      focusDesc: "Deep diving into Spark Structured Streaming, Kafka partitioning, and distributed storage redundancy at ENSAM Casablanca.",
+      exploringTitle: "Curiosity Radar",
+      exploringItems: [
+        { name: "Apache Iceberg", tag: "Data Lakehouse" },
+        { name: "Rust for Systems", tag: "Memory Safety & Speed" },
+        { name: "Autonomous LLM Agents", tag: "Applied AI" },
+        { name: "ClickHouse", tag: "Real-time OLAP" },
+      ],
+      readingTitle: "On My Desk",
+      readingBook: "Designing Data-Intensive Applications by Martin Kleppmann",
+      beyondTitle: "Beyond The Screen",
+      beyondItems: [
+        "Hardware tinkering with ESP32 & Arduino sensors",
+        "Chess tactics & strategic puzzles",
+        "Moroccan mint tea rituals & late-night brainstorming",
+        "Exploring open-source distributed frameworks",
+      ],
+      coffeeTeaNote: "Currently based in Casablanca, Morocco (UTC+1). Always happy to talk tech over tea.",
     },
 
     stats: [
-      { label: "LinkedIn Network", value: "500+" },
-      { label: "Current Studies", value: "ENSAM" },
-      { label: "Core Tech Stack", value: "15+" },
-      { label: "Engineering Projects", value: "8+" },
+      { value: "ENSAM", label: "Master BDIoT", sub: "Top engineering school in Morocco" },
+      { value: "4-Node", label: "Hadoop Cluster", sub: "Orchestrated with Docker & HDFS" },
+      { value: "PFE", label: "Enterprise Software", sub: "Flutter & Laravel shipped for GM-Soft" },
+      { value: "100%", label: "Curiosity & Drive", sub: "Fueled by late-night tea & debugging" },
     ],
 
     skillCategories: [
@@ -255,6 +316,8 @@ export const portfolioData: Record<Locale, PortfolioData> = {
           "Optimized resource scheduling and distributed data partition processing",
           "Robust containerized infrastructure managed via automated scripts",
         ],
+        challenge:
+          "Configuring reliable inter-container bridge networking so that HDFS NameNode and YARN ResourceManager maintained persistent heartbeats with worker DataNodes without IP collisions or split-brain states.",
       },
       {
         id: "greenhouse-irrigation-iot",
@@ -273,6 +336,8 @@ export const portfolioData: Record<Locale, PortfolioData> = {
           "Designed for solar-energy harvesting and low-power operation",
           "Tested in agricultural greenhouse conditions for optimal water conservation",
         ],
+        challenge:
+          "Calibrating analog soil moisture readings under extreme daytime heat variations in a real greenhouse, while architecting an ultra-low power sleep/wake relay cycle to prevent draining the solar battery bank.",
       },
       {
         id: "hr-mobile-app",
@@ -291,6 +356,8 @@ export const portfolioData: Record<Locale, PortfolioData> = {
           "Role-based access control (Admin, Manager, Employee)",
           "Comprehensive database modeling and relational integrity",
         ],
+        challenge:
+          "Translating complex multi-tier Moroccan labor leave calculation rules into clean reactive state in Flutter, backed by atomic database transactions on Laravel to eliminate race conditions.",
       },
       {
         id: "industrial-simulation",
@@ -309,6 +376,8 @@ export const portfolioData: Record<Locale, PortfolioData> = {
           "Synthesized industrial audio notifications & voice cues",
           "Lightweight zero-dependency architecture for instantaneous response",
         ],
+        challenge:
+          "Building a deterministic 60 FPS conveyor physics engine from scratch in pure vanilla JavaScript and Web Audio API without heavy game libraries, ensuring flawless sensor sync.",
       },
       {
         id: "n8n-automation-hub",
@@ -326,6 +395,8 @@ export const portfolioData: Record<Locale, PortfolioData> = {
           "Custom Python script nodes for structured data manipulation",
           "Automated notification pipelines to chat and email endpoints",
         ],
+        challenge:
+          "Designing idempotent webhook listeners and graceful retry backoffs to prevent duplicate database writes whenever external third-party services experienced network hiccups.",
       },
     ],
 
@@ -432,6 +503,7 @@ export const portfolioData: Record<Locale, PortfolioData> = {
     ui: {
       nav: {
         about: "About",
+        now: "Now",
         projects: "Projects",
         skills: "Skills",
         certifications: "Certifications",
@@ -454,6 +526,8 @@ export const portfolioData: Record<Locale, PortfolioData> = {
         badgeIoT: "IoT Automation",
         badgeFullstack: "Full-Stack Architecture",
         runCliBtn: "Run CLI >_",
+        liveClockCity: "Casablanca, Morocco 🇲🇦",
+        viewNowBtn: "What I'm Doing Now",
       },
       projects: {
         tag: "Featured Portfolio",
@@ -472,6 +546,7 @@ export const portfolioData: Record<Locale, PortfolioData> = {
         sourceCodeBtn: "Source Code",
         keyHighlights: "Key Technical Highlights",
         techArchitecture: "Technologies & Architecture",
+        challengeTitle: "Behind the Build: Key Engineering Challenge",
       },
       skills: {
         tag: "Technical Competencies",
@@ -500,7 +575,7 @@ export const portfolioData: Record<Locale, PortfolioData> = {
         title: "Get In",
         titleAccent: "Touch",
         subtitle:
-          "Have an engineering opportunity, a Big Data challenge, or want to collaborate? My inbox is always open.",
+          "Whether you want to discuss distributed architectures, explore an AI or Big Data opportunity, or just grab a warm Moroccan mint tea in Casablanca — my inbox is always open.",
         directContactTitle: "Direct Contact",
         directContactDesc:
           "Feel free to email me directly or copy my email address with one click.",
@@ -557,15 +632,45 @@ export const portfolioData: Record<Locale, PortfolioData> = {
       email: "amine.bouaouda02@gmail.com",
       github: "https://github.com/aminebouaouda02",
       linkedin: "https://www.linkedin.com/in/amine-bouaouda-071503278/",
-      bio: "Étudiant en Master Big Data & Internet of Things (BDIoT) à l'ENSAM Casablanca et futur ingénieur IA. Passionné par l'architecture de plateformes Big Data distribuées (Hadoop, Spark, Kafka), les pipelines de Machine Learning, l'automatisation IoT et le développement applicatif haute performance.",
+      bio: "Étudiant en Master Big Data & Internet of Things (BDIoT) à l'ENSAM Casablanca et futur ingénieur IA. Mon parcours d'ingénieur a débuté en bidouillant des microcontrôleurs pour évoluer vers l'architecture de clusters Big Data distribués multi-nœuds (Hadoop, Spark, Kafka), les pipelines de Machine Learning et les systèmes IoT embarqués.",
       resumeUrl: "/cv-amine-bouaouda.pdf",
+      taglineGreeting: "Salut ! Moi c'est",
+      avatar: "/avatar.jpg",
+      statusActivity: "En train de coder, optimiser des flux Kafka ou savourer un thé à la menthe",
+      motto: "Simplicité dans la conception, résilience à l'échelle distribuée.",
+    },
+
+    now: {
+      badge: "Momentum & Actualité",
+      title: "Ce que je fais",
+      titleAccent: "En ce Moment",
+      subtitle: "Un aperçu vivant de ce que j'apprends, conçois et explore en dehors des cours.",
+      focusTitle: "Thèse de Master & Traitement de Flux Distribués",
+      focusDesc: "Immersion dans le traitement de flux Spark Structured Streaming, le partitionnement Kafka et la redondance de stockage à l'ENSAM Casablanca.",
+      exploringTitle: "Radar de Curiosité",
+      exploringItems: [
+        { name: "Apache Iceberg", tag: "Data Lakehouse" },
+        { name: "Rust pour Systèmes", tag: "Performance & Sécurité" },
+        { name: "Agents IA Autonomes", tag: "IA Appliquée" },
+        { name: "ClickHouse", tag: "OLAP Temps Réel" },
+      ],
+      readingTitle: "Sur mon bureau",
+      readingBook: "Designing Data-Intensive Applications par Martin Kleppmann",
+      beyondTitle: "En dehors du code",
+      beyondItems: [
+        "Bricolage matériel avec capteurs ESP32 & Arduino",
+        "Tactiques d'échecs & casse-têtes stratégiques",
+        "Rituels de thé marocain & réflexions nocturnes",
+        "Veille active sur les frameworks distribués open-source",
+      ],
+      coffeeTeaNote: "Basé à Casablanca, Maroc (UTC+1). Toujours ravi d'échanger autour d'un bon thé.",
     },
 
     stats: [
-      { label: "Réseau LinkedIn", value: "500+" },
-      { label: "Formation Actuelle", value: "ENSAM" },
-      { label: "Technologies Maîtrisées", value: "15+" },
-      { label: "Projets d'Ingénierie", value: "8+" },
+      { value: "ENSAM", label: "Master BDIoT", sub: "Grande école d'ingénieurs à Casablanca" },
+      { value: "4 Nœuds", label: "Cluster Hadoop", sub: "Orchestré sous Docker & HDFS" },
+      { value: "PFE", label: "Logiciel Entreprise", sub: "Solution Flutter & Laravel livrée à GM-Soft" },
+      { value: "100%", label: "Curiosité & Rigueur", sub: "Nourri de thé à la menthe & persévérance" },
     ],
 
     skillCategories: [
@@ -633,6 +738,8 @@ export const portfolioData: Record<Locale, PortfolioData> = {
           "Ordonnancement performant et traitement distribué des partitions de données",
           "Infrastructure reproductible gérée par scripts automatisés",
         ],
+        challenge:
+          "Configurer le routage réseau et le DNS inter-conteneurs Docker pour assurer que le NameNode HDFS et le ResourceManager YARN maintiennent des heartbeats stables avec les DataNodes sans dérive d'adresses IP.",
       },
       {
         id: "greenhouse-irrigation-iot",
@@ -651,6 +758,8 @@ export const portfolioData: Record<Locale, PortfolioData> = {
           "Conception basse consommation prête pour l'alimentation par panneau solaire",
           "Testé en conditions agricoles pour une préservation optimale de la ressource en eau",
         ],
+        challenge:
+          "Calibrer la lecture analogique de l'humidité du sol face aux fortes amplitudes thermiques en serre réelle, tout en concevant un cycle de veille/réveil ultra-basse consommation pour préserver la batterie solaire.",
       },
       {
         id: "hr-mobile-app",
@@ -669,6 +778,8 @@ export const portfolioData: Record<Locale, PortfolioData> = {
           "Contrôle d'accès basé sur les rôles (Admin, Manager, Salarié)",
           "Modélisation de base de données relationnelle complète et intégrité référentielle",
         ],
+        challenge:
+          "Traduire les règles complexes du code du travail marocain pour le calcul des congés en un état réactif fluide sous Flutter, adossé à des transactions atomiques côté Laravel.",
       },
       {
         id: "industrial-simulation",
@@ -687,6 +798,8 @@ export const portfolioData: Record<Locale, PortfolioData> = {
           "Synthèse sonore industrielle pour alertes et consignes vocales",
           "Architecture ultra-légère sans dépendances pour une réactivité instantanée",
         ],
+        challenge:
+          "Créer une boucle événementielle déterministe à 60 FPS en pur JavaScript Canvas et Web Audio API sans framework lourd de jeu, garantissant une synchronisation parfaite des capteurs optiques.",
       },
       {
         id: "n8n-automation-hub",
@@ -704,6 +817,8 @@ export const portfolioData: Record<Locale, PortfolioData> = {
           "Scripts Python personnalisés pour la manipulation de structures complexes",
           "Acheminement automatique des notifications vers les canaux de messagerie",
         ],
+        challenge:
+          "Concevoir des écouteurs de webhooks idempotents et des reprises sur erreur progressives (retry backoffs) pour éviter toute duplication en base lors de micro-coupures de services tiers.",
       },
     ],
 
@@ -810,6 +925,7 @@ export const portfolioData: Record<Locale, PortfolioData> = {
     ui: {
       nav: {
         about: "À propos",
+        now: "En ce moment",
         projects: "Projets",
         skills: "Compétences",
         certifications: "Certifications",
@@ -832,6 +948,8 @@ export const portfolioData: Record<Locale, PortfolioData> = {
         badgeIoT: "Automatisation IoT",
         badgeFullstack: "Architecture Full-Stack",
         runCliBtn: "Lancer CLI >_",
+        liveClockCity: "Casablanca, Maroc 🇲🇦",
+        viewNowBtn: "Ce que je fais en ce moment",
       },
       projects: {
         tag: "Projets à la Une",
@@ -850,6 +968,7 @@ export const portfolioData: Record<Locale, PortfolioData> = {
         sourceCodeBtn: "Code Source",
         keyHighlights: "Points Techniques Clés",
         techArchitecture: "Technologies & Architecture",
+        challengeTitle: "Dans les coulisses : Le Défi Technique",
       },
       skills: {
         tag: "Compétences Techniques",
@@ -878,7 +997,7 @@ export const portfolioData: Record<Locale, PortfolioData> = {
         title: "Entrons en",
         titleAccent: "Contact",
         subtitle:
-          "Une opportunité professionnelle, un défi Big Data ou un projet d'ingénierie à discuter ? Écrivez-moi !",
+          "Que ce soit pour échanger sur les architectures distribuées, explorer une opportunité IA ou Big Data, ou simplement partager un bon thé à la menthe à Casablanca — ma boîte mail est grande ouverte.",
         directContactTitle: "Coordonnées Directes",
         directContactDesc:
           "Écrivez-moi directement par email ou copiez mon adresse en un clic.",
