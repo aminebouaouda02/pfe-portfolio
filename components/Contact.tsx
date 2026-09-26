@@ -18,14 +18,41 @@ export default function Contact() {
     setTimeout(() => setCopied(false), 2500);
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setFormStatus("submitting");
-    setTimeout(() => {
-      setFormStatus("sent");
-      setFormData({ name: "", email: "", message: "" });
-      setTimeout(() => setFormStatus("idle"), 4000);
-    }, 800);
+
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
+          access_key: "100b9e90-b8e7-47d9-8bfe-a84a58d7f174",
+          name: formData.name,
+          email: formData.email,
+          message: formData.message,
+          subject: `Portfolio Contact from ${formData.name}`,
+          from_name: "Amine Portfolio",
+        }),
+      });
+
+      const result = await response.json();
+
+      if (result.success) {
+        setFormStatus("sent");
+        setFormData({ name: "", email: "", message: "" });
+        setTimeout(() => setFormStatus("idle"), 5000);
+      } else {
+        setFormStatus("idle");
+        alert(result.message || "Failed to send message. Please try again.");
+      }
+    } catch (error) {
+      setFormStatus("idle");
+      alert("Network error. Please try again.");
+    }
   };
 
   return (
