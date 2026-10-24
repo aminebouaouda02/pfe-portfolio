@@ -300,6 +300,65 @@ export const portfolioData: Record<Locale, PortfolioData> = {
 
     projects: [
       {
+        id: "sellsight-big-data-platform",
+        title: "SellSight — Big Data Selling Platform (Team Project)",
+        category: "data",
+        featured: true,
+        summary: "Team-built selling platform with a full Big Data pipeline: Kafka events, Spark analytics, dashboards and recommendations.",
+        description:
+          "SellSight is a team project that pairs a classic e-commerce platform with a real Big Data architecture. Sales events stream through Apache Kafka into PostgreSQL, are ingested to HDFS with Sqoop, modelled in Hive, and processed with Apache Spark batch jobs that feed dashboards and product recommendations. The application itself runs on a Spring Boot backend and a Next.js frontend.",
+        tags: ["Apache Kafka", "Apache Spark", "Hadoop", "HDFS", "Hive", "Sqoop", "Spring Boot", "Next.js", "PostgreSQL"],
+        githubUrl: "https://github.com/MohammedElMO/SellSight",
+        highlights: [
+          "Real-time sales events streamed with Apache Kafka",
+          "Batch analytics in Apache Spark over HDFS and Hive tables",
+          "Data ingestion from PostgreSQL to HDFS automated with Sqoop",
+          "Dashboards and product recommendations built on the aggregated data",
+        ],
+        challenge:
+          "Connecting the streaming, storage and batch layers so the analytics stay consistent with the transactional data — events, warehouse tables and Spark outputs have to agree.",
+      },
+      {
+        id: "shop-analytics-platform",
+        title: "Shop Analytics Platform",
+        category: "fullstack",
+        featured: true,
+        summary: "E-commerce platform with JWT auth, product and order management, and Spark sales analytics.",
+        description:
+          "A small online shop built end to end: a Spring Boot REST API with JWT authentication and validated DTOs, PostgreSQL storage, a Next.js frontend with a product catalogue, order management and a statistics dashboard, and a PySpark job that computes revenue per category from the sales data.",
+        tags: ["Spring Boot", "Next.js", "TypeScript", "PostgreSQL", "Apache Spark", "JWT", "Tailwind CSS", "Docker"],
+        githubUrl: "https://github.com/aminebouaouda02/shop-analytics-platform",
+        image: "/projects/shop-analytics.png",
+        highlights: [
+          "JWT register and login with protected routes in Spring Security and Next.js",
+          "Full product and order CRUD with server-side validation and computed totals",
+          "Dashboard KPIs computed live: products, orders, revenue and low-stock alerts",
+          "PySpark batch job computing total revenue per category",
+        ],
+        challenge:
+          "Tailwind CSS was in the dependencies from day one but never actually configured, so the first UI rendered unstyled. I traced it to the missing tailwind.config.js and postcss.config.js, then rebuilt the whole interface.",
+      },
+      {
+        id: "pfe-internship-manager",
+        title: "PFE Internship Manager",
+        category: "fullstack",
+        featured: true,
+        summary: "Platform to manage PFE internship offers and student applications, with Spark statistics.",
+        description:
+          "A web platform that manages final-year (PFE) internships end to end: companies publish offers, students apply online, supervisors review applications and change their status, and Apache Spark computes statistics such as the most requested skills from the application data. Spring Boot API with JWT security and a Next.js frontend.",
+        tags: ["Spring Boot", "Next.js", "TypeScript", "PostgreSQL", "Apache Spark", "JWT", "Tailwind CSS", "Docker"],
+        githubUrl: "https://github.com/aminebouaouda02/pfe-internship-manager",
+        image: "/projects/pfe-internship-manager.png",
+        highlights: [
+          "Internship offers with search, skills filtering and full create, edit and delete",
+          "Online applications with a status workflow: PENDING, ACCEPTED, REJECTED",
+          "JWT authentication with protected pages for students and supervisors",
+          "Spark job computing application statistics, for example most requested skills",
+        ],
+        challenge:
+          "Modelling the application status workflow so a status change is one validated server-side transition — the API updates it via PUT /api/applications/{id}/status and the interface reflects it immediately.",
+      },
+      {
         id: "hadoop-distributed-cluster",
         title: "Big Data Distributed Architecture",
         category: "data",
@@ -308,8 +367,6 @@ export const portfolioData: Record<Locale, PortfolioData> = {
         description:
           "Designed and deployed a virtualized distributed Hadoop cluster within multi-container Docker environments at ENSAM Casablanca. Implemented HDFS distributed file system redundancy, configured YARN for distributed compute orchestration, and optimized big data job scheduling.",
         tags: ["Hadoop", "HDFS", "YARN", "Docker", "Linux", "Big Data", "Distributed Systems"],
-        demoUrl: "https://github.com/aminebouaouda02",
-        githubUrl: "https://github.com/aminebouaouda02",
         highlights: [
           "Multi-node virtualized Hadoop cluster orchestrating HDFS & YARN",
           "Configured master/worker node topology with Docker containers",
@@ -328,8 +385,6 @@ export const portfolioData: Record<Locale, PortfolioData> = {
         description:
           "Built a complete intelligent, solar-ready greenhouse irrigation and monitoring system. Leveraged an Arduino Uno microcontroller, soil moisture sensors, and PIR motion detectors to automatically regulate water distribution based on soil needs and secure the perimeter.",
         tags: ["IoT", "Arduino Uno", "Embedded C++", "Sensors", "Solar Power", "Hardware Automation"],
-        demoUrl: "https://github.com/aminebouaouda02",
-        githubUrl: "https://github.com/aminebouaouda02",
         highlights: [
           "Real-time soil moisture monitoring with autonomous relay pump triggers",
           "PIR motion surveillance integration for intruder/wildlife detection",
@@ -348,8 +403,6 @@ export const portfolioData: Record<Locale, PortfolioData> = {
         description:
           "End-of-Studies (PFE) project engineered for GM-Soft IT Solutions. Designed and developed a comprehensive mobile application for human resources management, featuring role-based permission control, leave request workflows, attendance tracking, and JWT-authenticated Laravel backend.",
         tags: ["Flutter", "Dart", "Laravel", "PHP", "MySQL", "REST API", "JWT Auth"],
-        demoUrl: "https://github.com/aminebouaouda02",
-        githubUrl: "https://github.com/aminebouaouda02",
         highlights: [
           "Cross-platform mobile UI built with Flutter & Dart for iOS and Android",
           "Secure REST API backend built with Laravel, MySQL, and JWT authentication",
@@ -369,7 +422,6 @@ export const portfolioData: Record<Locale, PortfolioData> = {
           "Comprehensive browser-based simulation of an automated industrial production line. Features real-time state machines, sensor triggers, conveyor logic, error diagnostics, and synthesized audio feedback for industrial monitoring.",
         tags: ["JavaScript ES6+", "HTML5 Canvas", "State Machines", "Audio API", "Industrial Automation"],
         demoUrl: "/simulation-ligne-industrielle/index.html",
-        githubUrl: "https://github.com/aminebouaouda02",
         highlights: [
           "Real-time event loop & conveyor physics simulation",
           "Configurable sensor trigger points & station diagnostics",
@@ -388,8 +440,6 @@ export const portfolioData: Record<Locale, PortfolioData> = {
         description:
           "Engineered automated workflows connecting disparate services, database syncing, and alert notifications through n8n visual automation and custom Python scripting.",
         tags: ["n8n", "Python", "Webhooks", "API Integration", "Automation", "Data Pipelines"],
-        demoUrl: "https://github.com/aminebouaouda02",
-        githubUrl: "https://github.com/aminebouaouda02",
         highlights: [
           "Event-driven webhook listeners for automated trigger execution",
           "Custom Python script nodes for structured data manipulation",
@@ -722,6 +772,65 @@ export const portfolioData: Record<Locale, PortfolioData> = {
 
     projects: [
       {
+        id: "sellsight-big-data-platform",
+        title: "SellSight — Plateforme de Vente Big Data (Projet d'Équipe)",
+        category: "data",
+        featured: true,
+        summary: "Plateforme de vente réalisée en équipe avec un pipeline Big Data complet : événements Kafka, analytique Spark, tableaux de bord et recommandations.",
+        description:
+          "SellSight est un projet d'équipe qui associe une plateforme e-commerce classique à une vraie architecture Big Data. Les événements de vente transitent par Apache Kafka vers PostgreSQL, sont ingérés dans HDFS avec Sqoop, modélisés dans Hive, puis traités par des jobs batch Apache Spark qui alimentent des tableaux de bord et des recommandations de produits. L'application repose sur un backend Spring Boot et un frontend Next.js.",
+        tags: ["Apache Kafka", "Apache Spark", "Hadoop", "HDFS", "Hive", "Sqoop", "Spring Boot", "Next.js", "PostgreSQL"],
+        githubUrl: "https://github.com/MohammedElMO/SellSight",
+        highlights: [
+          "Événements de vente en temps réel diffusés avec Apache Kafka",
+          "Analytique batch avec Apache Spark sur HDFS et les tables Hive",
+          "Ingestion des données de PostgreSQL vers HDFS automatisée avec Sqoop",
+          "Tableaux de bord et recommandations de produits construits sur les données agrégées",
+        ],
+        challenge:
+          "Relier les couches streaming, stockage et batch pour que l'analytique reste cohérente avec les données transactionnelles — événements, tables d'entrepôt et résultats Spark doivent concorder.",
+      },
+      {
+        id: "shop-analytics-platform",
+        title: "Shop Analytics Platform",
+        category: "fullstack",
+        featured: true,
+        summary: "Plateforme e-commerce avec authentification JWT, gestion des produits et des commandes, et analytique des ventes avec Spark.",
+        description:
+          "Une petite boutique en ligne construite de bout en bout : une API REST Spring Boot avec authentification JWT et DTO validés, un stockage PostgreSQL, un frontend Next.js avec catalogue produits, gestion des commandes et tableau de bord statistique, et un job PySpark qui calcule le chiffre d'affaires par catégorie à partir des ventes.",
+        tags: ["Spring Boot", "Next.js", "TypeScript", "PostgreSQL", "Apache Spark", "JWT", "Tailwind CSS", "Docker"],
+        githubUrl: "https://github.com/aminebouaouda02/shop-analytics-platform",
+        image: "/projects/shop-analytics.png",
+        highlights: [
+          "Inscription et connexion JWT avec routes protégées dans Spring Security et Next.js",
+          "CRUD complet des produits et des commandes avec validation côté serveur et totaux calculés",
+          "Indicateurs du tableau de bord calculés en direct : produits, commandes, revenus et alertes de stock faible",
+          "Job batch PySpark calculant le chiffre d'affaires total par catégorie",
+        ],
+        challenge:
+          "Tailwind CSS était dans les dépendances dès le premier jour mais n'a jamais été réellement configuré, donc la première interface s'affichait sans styles. J'ai remonté le problème jusqu'aux fichiers tailwind.config.js et postcss.config.js manquants, puis reconstruit toute l'interface.",
+      },
+      {
+        id: "pfe-internship-manager",
+        title: "PFE Internship Manager",
+        category: "fullstack",
+        featured: true,
+        summary: "Plateforme pour gérer les offres de stage PFE et les candidatures des étudiants, avec des statistiques Spark.",
+        description:
+          "Une plateforme web qui gère les stages de fin d'études (PFE) de bout en bout : les entreprises publient des offres, les étudiants candidatent en ligne, les encadrants examinent les candidatures et modifient leur statut, et Apache Spark calcule des statistiques comme les compétences les plus demandées à partir des candidatures. API Spring Boot avec sécurité JWT et frontend Next.js.",
+        tags: ["Spring Boot", "Next.js", "TypeScript", "PostgreSQL", "Apache Spark", "JWT", "Tailwind CSS", "Docker"],
+        githubUrl: "https://github.com/aminebouaouda02/pfe-internship-manager",
+        image: "/projects/pfe-internship-manager.png",
+        highlights: [
+          "Offres de stage avec recherche, filtrage par compétences et création, modification et suppression complètes",
+          "Candidatures en ligne avec un workflow de statuts : PENDING, ACCEPTED, REJECTED",
+          "Authentification JWT avec pages protégées pour les étudiants et les encadrants",
+          "Job Spark calculant les statistiques des candidatures, par exemple les compétences les plus demandées",
+        ],
+        challenge:
+          "Modéliser le workflow des statuts de candidature pour qu'un changement de statut soit une transition unique et validée côté serveur — l'API le met à jour via PUT /api/applications/{id}/status et l'interface le reflète immédiatement.",
+      },
+      {
         id: "hadoop-distributed-cluster",
         title: "Architecture Distribuée Big Data",
         category: "data",
@@ -730,8 +839,6 @@ export const portfolioData: Record<Locale, PortfolioData> = {
         description:
           "Conception et déploiement d'un cluster Hadoop distribué et virtualisé au sein d'environnements Docker multi-conteneurs à l'ENSAM Casablanca. Mise en œuvre de la redondance HDFS, allocation des ressources avec YARN et ordonnancement de jobs Big Data.",
         tags: ["Hadoop", "HDFS", "YARN", "Docker", "Linux", "Big Data", "Systèmes Distribués"],
-        demoUrl: "https://github.com/aminebouaouda02",
-        githubUrl: "https://github.com/aminebouaouda02",
         highlights: [
           "Cluster Hadoop multi-nœuds orchestrant HDFS et YARN",
           "Topologie master/worker optimisée avec Docker Compose",
@@ -750,8 +857,6 @@ export const portfolioData: Record<Locale, PortfolioData> = {
         description:
           "Conception d'un système intelligent et autonome de régulation climatique et d'arrosage pour serres agricoles. Piloté par un microcontrôleur Arduino Uno, des capteurs d'humidité du sol et des détecteurs de mouvement PIR pour la sécurité du périmètre.",
         tags: ["IoT", "Arduino Uno", "C++ Embarqué", "Capteurs", "Énergie Solaire", "Automatisation"],
-        demoUrl: "https://github.com/aminebouaouda02",
-        githubUrl: "https://github.com/aminebouaouda02",
         highlights: [
           "Surveillance en temps réel de l'humidité du sol et déclenchement automatique des relais",
           "Détection d'intrusion et surveillance périmétrique par capteurs PIR",
@@ -770,8 +875,6 @@ export const portfolioData: Record<Locale, PortfolioData> = {
         description:
           "Projet de Fin d'Études (PFE) réalisé pour GM-Soft IT Solutions. Solution mobile complète comprenant l'authentification par tokens JWT, la gestion des permissions basée sur les rôles, les demandes de congé et le suivi des présences.",
         tags: ["Flutter", "Dart", "Laravel", "PHP", "MySQL", "API REST", "Auth JWT"],
-        demoUrl: "https://github.com/aminebouaouda02",
-        githubUrl: "https://github.com/aminebouaouda02",
         highlights: [
           "Interface mobile cross-platform fluide conçue avec Flutter & Dart pour iOS et Android",
           "Backend API REST robuste sous Laravel, MySQL et authentification JWT",
@@ -791,7 +894,6 @@ export const portfolioData: Record<Locale, PortfolioData> = {
           "Simulation complète sur navigateur d'une ligne d'assemblage industrielle. Intègre des machines à états finis en temps réel, des capteurs de présence, une physique de convoyeur, un diagnostic d'erreurs et des alertes audio synthétisées.",
         tags: ["JavaScript ES6+", "HTML5 Canvas", "Machines à États", "Web Audio API", "Automatisation"],
         demoUrl: "/simulation-ligne-industrielle/index.html",
-        githubUrl: "https://github.com/aminebouaouda02",
         highlights: [
           "Boucle événementielle temps réel et simulation physique du convoyeur",
           "Déclencheurs optiques paramétrables et diagnostics par poste",
@@ -810,8 +912,6 @@ export const portfolioData: Record<Locale, PortfolioData> = {
         description:
           "Développement de flux de données automatisés reliant des services distants, la synchronisation de bases de données et l'envoi d'alertes en temps réel via n8n et scripts Python.",
         tags: ["n8n", "Python", "Webhooks", "Intégration d'APIs", "Automatisation", "Pipelines"],
-        demoUrl: "https://github.com/aminebouaouda02",
-        githubUrl: "https://github.com/aminebouaouda02",
         highlights: [
           "Écouteurs de webhooks événementiels pour déclenchement automatique",
           "Scripts Python personnalisés pour la manipulation de structures complexes",

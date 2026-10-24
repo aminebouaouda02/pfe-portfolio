@@ -95,6 +95,22 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
           <X size={20} />
         </button>
 
+        {/* Project screenshot */}
+        {project.image && (
+          <img
+            src={project.image}
+            alt={project.title}
+            style={{
+              width: "100%",
+              height: "auto",
+              display: "block",
+              borderRadius: "var(--radius-md)",
+              border: "1px solid var(--border-subtle)",
+              marginBottom: "1.25rem",
+            }}
+          />
+        )}
+
         {/* Modal Category & Title */}
         <div style={{ display: "flex", alignItems: "center", gap: "0.6rem", marginBottom: "0.75rem" }}>
           <span className="badge-pill" style={{ textTransform: "capitalize" }}>

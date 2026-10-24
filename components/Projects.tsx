@@ -94,6 +94,22 @@ export default function Projects() {
               }}
             >
               <div>
+                {/* Project screenshot */}
+                {project.image && (
+                  <img
+                    src={project.image}
+                    alt={project.title}
+                    style={{
+                      width: "100%",
+                      height: "auto",
+                      display: "block",
+                      borderRadius: "var(--radius-md)",
+                      border: "1px solid var(--border-subtle)",
+                      marginBottom: "1.25rem",
+                    }}
+                  />
+                )}
+
                 {/* Header row: category + featured badge */}
                 <div
                   style={{
