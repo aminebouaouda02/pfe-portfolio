@@ -344,10 +344,10 @@ export const portfolioData: Record<Locale, PortfolioData> = {
         title: "Shop Analytics Platform",
         category: "fullstack",
         featured: true,
-        summary: "E-commerce platform with JWT auth, product and order management, and Spark sales analytics.",
+        summary: "Finished e-commerce platform with JWT auth, product and order management, Spark sales analytics, and a demo flow.",
         description:
-          "A small online shop built end to end: a Spring Boot REST API with JWT authentication and validated DTOs, PostgreSQL storage, a Next.js frontend with a product catalogue, order management and a statistics dashboard, and a PySpark job that computes revenue per category from the sales data.",
-        tags: ["Spring Boot", "Next.js", "TypeScript", "PostgreSQL", "Apache Spark", "JWT", "Tailwind CSS", "Docker"],
+          "A small online shop built end to end: a Spring Boot REST API with JWT authentication and validated DTOs, PostgreSQL storage, a Next.js frontend with a product catalogue, order management and a statistics dashboard, and a PySpark job that computes revenue per category from the sales data. The full stack also runs under Docker Compose with an optional Hadoop HDFS profile, with backend tests, GitHub Actions CI, and a seed-data demo flow so the app can be tried with a demo login.",
+        tags: ["Spring Boot", "Next.js", "TypeScript", "PostgreSQL", "Apache Spark", "HDFS", "JWT", "Tailwind CSS", "Docker", "GitHub Actions"],
         githubUrl: "https://github.com/aminebouaouda02/shop-analytics-platform",
         image: "/projects/shop-analytics.png",
         highlights: [
@@ -355,6 +355,8 @@ export const portfolioData: Record<Locale, PortfolioData> = {
           "Full product and order CRUD with server-side validation and computed totals",
           "Dashboard KPIs computed live: products, orders, revenue and low-stock alerts",
           "PySpark batch job computing total revenue per category",
+          "Docker Compose with an optional Hadoop HDFS + Spark profile",
+          "Seed data and demo login, with CI running backend tests and the frontend build",
         ],
         challenge:
           "Tailwind CSS was in the dependencies from day one but never actually configured, so the first UI rendered unstyled. I traced it to the missing tailwind.config.js and postcss.config.js, then rebuilt the whole interface.",
@@ -364,10 +366,10 @@ export const portfolioData: Record<Locale, PortfolioData> = {
         title: "PFE Internship Manager",
         category: "fullstack",
         featured: true,
-        summary: "Platform to manage PFE internship offers and student applications, with Spark statistics.",
+        summary: "Finished platform to manage PFE internship offers and student applications, with Spark statistics and a demo flow.",
         description:
-          "A web platform that manages final-year (PFE) internships end to end: companies publish offers, students apply online, supervisors review applications and change their status, and Apache Spark computes statistics such as the most requested skills from the application data. Spring Boot API with JWT security and a Next.js frontend.",
-        tags: ["Spring Boot", "Next.js", "TypeScript", "PostgreSQL", "Apache Spark", "JWT", "Tailwind CSS", "Docker"],
+          "A web platform that manages final-year (PFE) internships end to end: companies publish offers, students apply online, supervisors review applications and change their status, and Apache Spark computes statistics such as the most requested skills from the application data. Spring Boot API with JWT security and a Next.js frontend. It also runs under Docker Compose with an optional Hadoop HDFS profile, with backend tests, GitHub Actions CI, and a seed-data demo flow with demo student and supervisor logins.",
+        tags: ["Spring Boot", "Next.js", "TypeScript", "PostgreSQL", "Apache Spark", "HDFS", "JWT", "Tailwind CSS", "Docker", "GitHub Actions"],
         githubUrl: "https://github.com/aminebouaouda02/pfe-internship-manager",
         image: "/projects/pfe-internship-manager.png",
         highlights: [
@@ -375,6 +377,8 @@ export const portfolioData: Record<Locale, PortfolioData> = {
           "Online applications with a status workflow: PENDING, ACCEPTED, REJECTED",
           "JWT authentication with protected pages for students and supervisors",
           "Spark job computing application statistics, for example most requested skills",
+          "Docker Compose with an optional Hadoop HDFS + Spark profile",
+          "Seed data and demo logins, with CI running backend tests and the frontend build",
         ],
         challenge:
           "Modelling the application status workflow so a status change is one validated server-side transition — the API updates it via PUT /api/applications/{id}/status and the interface reflects it immediately.",
@@ -794,10 +798,10 @@ export const portfolioData: Record<Locale, PortfolioData> = {
         title: "Shop Analytics Platform",
         category: "fullstack",
         featured: true,
-        summary: "Plateforme e-commerce avec authentification JWT, gestion des produits et des commandes, et analytique des ventes avec Spark.",
+        summary: "Plateforme e-commerce terminée avec authentification JWT, gestion des produits et des commandes, analytique des ventes avec Spark et flux de démonstration.",
         description:
-          "Une petite boutique en ligne construite de bout en bout : une API REST Spring Boot avec authentification JWT et DTO validés, un stockage PostgreSQL, un frontend Next.js avec catalogue produits, gestion des commandes et tableau de bord statistique, et un job PySpark qui calcule le chiffre d'affaires par catégorie à partir des ventes.",
-        tags: ["Spring Boot", "Next.js", "TypeScript", "PostgreSQL", "Apache Spark", "JWT", "Tailwind CSS", "Docker"],
+          "Une petite boutique en ligne construite de bout en bout : une API REST Spring Boot avec authentification JWT et DTO validés, un stockage PostgreSQL, un frontend Next.js avec catalogue produits, gestion des commandes et tableau de bord statistique, et un job PySpark qui calcule le chiffre d'affaires par catégorie à partir des ventes. L'ensemble tourne aussi sous Docker Compose avec un profil Hadoop HDFS optionnel, avec des tests backend, une CI GitHub Actions et un flux de données de démonstration avec une connexion démo.",
+        tags: ["Spring Boot", "Next.js", "TypeScript", "PostgreSQL", "Apache Spark", "HDFS", "JWT", "Tailwind CSS", "Docker", "GitHub Actions"],
         githubUrl: "https://github.com/aminebouaouda02/shop-analytics-platform",
         image: "/projects/shop-analytics.png",
         highlights: [
@@ -805,6 +809,8 @@ export const portfolioData: Record<Locale, PortfolioData> = {
           "CRUD complet des produits et des commandes avec validation côté serveur et totaux calculés",
           "Indicateurs du tableau de bord calculés en direct : produits, commandes, revenus et alertes de stock faible",
           "Job batch PySpark calculant le chiffre d'affaires total par catégorie",
+          "Docker Compose avec un profil Hadoop HDFS + Spark optionnel",
+          "Données de démonstration et connexion démo, avec une CI qui lance les tests backend et le build frontend",
         ],
         challenge:
           "Tailwind CSS était dans les dépendances dès le premier jour mais n'a jamais été réellement configuré, donc la première interface s'affichait sans styles. J'ai remonté le problème jusqu'aux fichiers tailwind.config.js et postcss.config.js manquants, puis reconstruit toute l'interface.",
@@ -814,10 +820,10 @@ export const portfolioData: Record<Locale, PortfolioData> = {
         title: "PFE Internship Manager",
         category: "fullstack",
         featured: true,
-        summary: "Plateforme pour gérer les offres de stage PFE et les candidatures des étudiants, avec des statistiques Spark.",
+        summary: "Plateforme terminée pour gérer les offres de stage PFE et les candidatures des étudiants, avec des statistiques Spark et un flux de démonstration.",
         description:
-          "Une plateforme web qui gère les stages de fin d'études (PFE) de bout en bout : les entreprises publient des offres, les étudiants candidatent en ligne, les encadrants examinent les candidatures et modifient leur statut, et Apache Spark calcule des statistiques comme les compétences les plus demandées à partir des candidatures. API Spring Boot avec sécurité JWT et frontend Next.js.",
-        tags: ["Spring Boot", "Next.js", "TypeScript", "PostgreSQL", "Apache Spark", "JWT", "Tailwind CSS", "Docker"],
+          "Une plateforme web qui gère les stages de fin d'études (PFE) de bout en bout : les entreprises publient des offres, les étudiants candidatent en ligne, les encadrants examinent les candidatures et modifient leur statut, et Apache Spark calcule des statistiques comme les compétences les plus demandées à partir des candidatures. API Spring Boot avec sécurité JWT et frontend Next.js. Elle tourne aussi sous Docker Compose avec un profil Hadoop HDFS optionnel, avec des tests backend, une CI GitHub Actions et un flux de données de démonstration avec des connexions démo étudiant et encadrant.",
+        tags: ["Spring Boot", "Next.js", "TypeScript", "PostgreSQL", "Apache Spark", "HDFS", "JWT", "Tailwind CSS", "Docker", "GitHub Actions"],
         githubUrl: "https://github.com/aminebouaouda02/pfe-internship-manager",
         image: "/projects/pfe-internship-manager.png",
         highlights: [
@@ -825,6 +831,8 @@ export const portfolioData: Record<Locale, PortfolioData> = {
           "Candidatures en ligne avec un workflow de statuts : PENDING, ACCEPTED, REJECTED",
           "Authentification JWT avec pages protégées pour les étudiants et les encadrants",
           "Job Spark calculant les statistiques des candidatures, par exemple les compétences les plus demandées",
+          "Docker Compose avec un profil Hadoop HDFS + Spark optionnel",
+          "Données de démonstration et connexions démo, avec une CI qui lance les tests backend et le build frontend",
         ],
         challenge:
           "Modéliser le workflow des statuts de candidature pour qu'un changement de statut soit une transition unique et validée côté serveur — l'API le met à jour via PUT /api/applications/{id}/status et l'interface le reflète immédiatement.",
