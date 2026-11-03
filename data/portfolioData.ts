@@ -309,6 +309,7 @@ export const portfolioData: Record<Locale, PortfolioData> = {
           "SellSight is a team project that pairs a classic e-commerce platform with a real Big Data architecture. Sales events stream through Apache Kafka into PostgreSQL, are ingested to HDFS with Sqoop, modelled in Hive, and processed with Apache Spark batch jobs that feed dashboards and product recommendations. The application itself runs on a Spring Boot backend and a Next.js frontend.",
         tags: ["Apache Kafka", "Apache Spark", "Hadoop", "HDFS", "Hive", "Sqoop", "Spring Boot", "Next.js", "PostgreSQL"],
         githubUrl: "https://github.com/MohammedElMO/SellSight",
+        image: "/projects/sellsight.png",
         highlights: [
           "Real-time sales events streamed with Apache Kafka",
           "Batch analytics in Apache Spark over HDFS and Hive tables",
@@ -317,6 +318,26 @@ export const portfolioData: Record<Locale, PortfolioData> = {
         ],
         challenge:
           "Connecting the streaming, storage and batch layers so the analytics stay consistent with the transactional data — events, warehouse tables and Spark outputs have to agree.",
+      },
+      {
+        id: "iot-anomaly-detection",
+        title: "IoT Anomaly Detection",
+        category: "data",
+        featured: true,
+        summary: "Machine-learning anomaly detection on sensor telemetry: 10,080 readings, a statistical baseline vs Isolation Forest, served by a FastAPI API and a dashboard.",
+        description:
+          "End-to-end data science project on synthetic industrial telemetry (temperature, humidity, vibration) with 404 labelled anomalies. After cleaning and feature engineering, a rolling z-score baseline (F1 0.154) is compared with an Isolation Forest model (F1 0.277) on a chronological split. Results are served through a FastAPI API, a Streamlit dashboard and a live MQTT scoring path, with tests and CI.",
+        tags: ["Python", "scikit-learn", "Isolation Forest", "FastAPI", "Streamlit", "MQTT", "pandas"],
+        githubUrl: "https://github.com/aminebouaouda02/iot-anomaly-detection",
+        image: "/projects/iot-anomaly-detection.png",
+        highlights: [
+          "10,080 telemetry readings with 404 labelled anomalies (spikes, drops, drifts, stuck sensors)",
+          "Rolling z-score baseline (F1 0.154) vs Isolation Forest (F1 0.277), chronological train/test split",
+          "FastAPI scoring API, Streamlit dashboard and live MQTT path",
+          "Tested with pytest and shipped with GitHub Actions CI",
+        ],
+        challenge:
+          "Detecting slow sensor drifts and stuck sensors — the anomaly types a simple threshold misses — without drowning the operator in false positives on the obvious spikes.",
       },
       {
         id: "shop-analytics-platform",
@@ -411,42 +432,6 @@ export const portfolioData: Record<Locale, PortfolioData> = {
         ],
         challenge:
           "Translating complex multi-tier Moroccan labor leave calculation rules into clean reactive state in Flutter, backed by atomic database transactions on Laravel to eliminate race conditions.",
-      },
-      {
-        id: "industrial-simulation",
-        title: "Simulation Ligne Industrielle",
-        category: "systems",
-        featured: true,
-        summary: "Interactive real-time industrial production line simulator with state machines, physics, and audio cues.",
-        description:
-          "Comprehensive browser-based simulation of an automated industrial production line. Features real-time state machines, sensor triggers, conveyor logic, error diagnostics, and synthesized audio feedback for industrial monitoring.",
-        tags: ["JavaScript ES6+", "HTML5 Canvas", "State Machines", "Audio API", "Industrial Automation"],
-        demoUrl: "/simulation-ligne-industrielle/index.html",
-        highlights: [
-          "Real-time event loop & conveyor physics simulation",
-          "Configurable sensor trigger points & station diagnostics",
-          "Synthesized industrial audio notifications & voice cues",
-          "Lightweight zero-dependency architecture for instantaneous response",
-        ],
-        challenge:
-          "Building a deterministic 60 FPS conveyor physics engine from scratch in pure vanilla JavaScript and Web Audio API without heavy game libraries, ensuring flawless sensor sync.",
-      },
-      {
-        id: "n8n-automation-hub",
-        title: "Intelligent Workflow Automation Hub",
-        category: "data",
-        featured: false,
-        summary: "Automated event-driven data pipelines and webhook orchestration using n8n and Python.",
-        description:
-          "Engineered automated workflows connecting disparate services, database syncing, and alert notifications through n8n visual automation and custom Python scripting.",
-        tags: ["n8n", "Python", "Webhooks", "API Integration", "Automation", "Data Pipelines"],
-        highlights: [
-          "Event-driven webhook listeners for automated trigger execution",
-          "Custom Python script nodes for structured data manipulation",
-          "Automated notification pipelines to chat and email endpoints",
-        ],
-        challenge:
-          "Designing idempotent webhook listeners and graceful retry backoffs to prevent duplicate database writes whenever external third-party services experienced network hiccups.",
       },
     ],
 
@@ -774,6 +759,7 @@ export const portfolioData: Record<Locale, PortfolioData> = {
           "SellSight est un projet d'équipe qui associe une plateforme e-commerce classique à une vraie architecture Big Data. Les événements de vente transitent par Apache Kafka vers PostgreSQL, sont ingérés dans HDFS avec Sqoop, modélisés dans Hive, puis traités par des jobs batch Apache Spark qui alimentent des tableaux de bord et des recommandations de produits. L'application repose sur un backend Spring Boot et un frontend Next.js.",
         tags: ["Apache Kafka", "Apache Spark", "Hadoop", "HDFS", "Hive", "Sqoop", "Spring Boot", "Next.js", "PostgreSQL"],
         githubUrl: "https://github.com/MohammedElMO/SellSight",
+        image: "/projects/sellsight.png",
         highlights: [
           "Événements de vente en temps réel diffusés avec Apache Kafka",
           "Analytique batch avec Apache Spark sur HDFS et les tables Hive",
@@ -782,6 +768,26 @@ export const portfolioData: Record<Locale, PortfolioData> = {
         ],
         challenge:
           "Relier les couches streaming, stockage et batch pour que l'analytique reste cohérente avec les données transactionnelles — événements, tables d'entrepôt et résultats Spark doivent concorder.",
+      },
+      {
+        id: "iot-anomaly-detection",
+        title: "Détection d'Anomalies IoT",
+        category: "data",
+        featured: true,
+        summary: "Détection d'anomalies par machine learning sur télémétrie de capteurs : 10 080 mesures, baseline statistique contre Isolation Forest, API FastAPI et tableau de bord.",
+        description:
+          "Projet data science complet sur télémétrie industrielle synthétique (température, humidité, vibration) avec 404 anomalies étiquetées. Après nettoyage et ingénierie de variables, une baseline statistique (z-score glissant, F1 0,154) est comparée à un modèle Isolation Forest (F1 0,277) sur un découpage chronologique. Les résultats sont exposés via une API FastAPI, un tableau de bord Streamlit et un scoring MQTT en direct, avec tests et CI.",
+        tags: ["Python", "scikit-learn", "Isolation Forest", "FastAPI", "Streamlit", "MQTT", "pandas"],
+        githubUrl: "https://github.com/aminebouaouda02/iot-anomaly-detection",
+        image: "/projects/iot-anomaly-detection.png",
+        highlights: [
+          "10 080 mesures de télémétrie et 404 anomalies étiquetées (pics, chutes, dérives, capteurs bloqués)",
+          "Baseline z-score glissant (F1 0,154) contre Isolation Forest (F1 0,277), découpage chronologique",
+          "API de scoring FastAPI, tableau de bord Streamlit et flux MQTT en direct",
+          "Tests pytest et CI GitHub Actions",
+        ],
+        challenge:
+          "Détecter les dérives lentes et les capteurs bloqués — les anomalies qu'un simple seuil ne voit pas — sans noyer l'opérateur sous les faux positifs sur les pics évidents.",
       },
       {
         id: "shop-analytics-platform",
@@ -876,42 +882,6 @@ export const portfolioData: Record<Locale, PortfolioData> = {
         ],
         challenge:
           "Traduire les règles complexes du code du travail marocain pour le calcul des congés en un état réactif fluide sous Flutter, adossé à des transactions atomiques côté Laravel.",
-      },
-      {
-        id: "industrial-simulation",
-        title: "Simulation de Ligne Industrielle",
-        category: "systems",
-        featured: true,
-        summary: "Simulateur interactif en temps réel d'une ligne de production automatisée avec machines à états et retour audio.",
-        description:
-          "Simulation complète sur navigateur d'une ligne d'assemblage industrielle. Intègre des machines à états finis en temps réel, des capteurs de présence, une physique de convoyeur, un diagnostic d'erreurs et des alertes audio synthétisées.",
-        tags: ["JavaScript ES6+", "HTML5 Canvas", "Machines à États", "Web Audio API", "Automatisation"],
-        demoUrl: "/simulation-ligne-industrielle/index.html",
-        highlights: [
-          "Boucle événementielle temps réel et simulation physique du convoyeur",
-          "Déclencheurs optiques paramétrables et diagnostics par poste",
-          "Synthèse sonore industrielle pour alertes et consignes vocales",
-          "Architecture ultra-légère sans dépendances pour une réactivité instantanée",
-        ],
-        challenge:
-          "Créer une boucle événementielle déterministe à 60 FPS en pur JavaScript Canvas et Web Audio API sans framework lourd de jeu, garantissant une synchronisation parfaite des capteurs optiques.",
-      },
-      {
-        id: "n8n-automation-hub",
-        title: "Hub d'Automatisation de Workflows n8n",
-        category: "data",
-        featured: false,
-        summary: "Pipelines événementiels et orchestration de webhooks automatisés avec n8n et Python.",
-        description:
-          "Développement de flux de données automatisés reliant des services distants, la synchronisation de bases de données et l'envoi d'alertes en temps réel via n8n et scripts Python.",
-        tags: ["n8n", "Python", "Webhooks", "Intégration d'APIs", "Automatisation", "Pipelines"],
-        highlights: [
-          "Écouteurs de webhooks événementiels pour déclenchement automatique",
-          "Scripts Python personnalisés pour la manipulation de structures complexes",
-          "Acheminement automatique des notifications vers les canaux de messagerie",
-        ],
-        challenge:
-          "Concevoir des écouteurs de webhooks idempotents et des reprises sur erreur progressives (retry backoffs) pour éviter toute duplication en base lors de micro-coupures de services tiers.",
       },
     ],
 
