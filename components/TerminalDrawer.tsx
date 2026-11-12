@@ -105,11 +105,11 @@ export default function TerminalDrawer({ isOpen, onClose }: TerminalDrawerProps)
             <br />
             📁 Big Data: Hadoop (HDFS, YARN), Apache Spark, Kafka, NoSQL, PostgreSQL
             <br />
-            🧠 AI &amp; ML: Python, Scikit-Learn, n8n Automation, Data Science
+            🧠 AI &amp; ML: Python, Scikit-Learn, RAG &amp; LLM Applications, Data Science
             <br />
             💻 Languages: Java, Spring Boot, Flutter, Dart, PHP, Laravel, C/C++, JS
             <br />
-            ☁️ Infra/IoT: Docker, Linux Shell, Arduino Uno, AWS Cloud, Git CI/CD
+            ☁️ Infra/IoT: Docker, Linux Shell, Git &amp; CI/CD, AWS Academy (Cloud Foundations)
           </div>
         );
         break;
@@ -132,15 +132,15 @@ export default function TerminalDrawer({ isOpen, onClose }: TerminalDrawerProps)
       case "hadoop":
         output = (
           <div style={{ color: "var(--accent-cyan)", fontFamily: "var(--font-mono)" }}>
-            [HADOOP CLUSTER TELEMETRY]
+            [HADOOP — WHERE I ACTUALLY USE IT]
             <br />
-            &bull; Master Node: active (HDFS NameNode + YARN ResourceManager)
+            &bull; ENSAM coursework: HDFS &amp; YARN labs in Docker containers
             <br />
-            &bull; DataNodes: 3 containers running (HDFS capacity: 100% healthy)
+            &bull; SellSight: Sqoop → HDFS → Hive batch layer for sales analytics
             <br />
-            &bull; Spark Context: ready (PySpark session active)
+            &bull; FleetSense: HDFS raw telemetry storage, Hive history analytics
             <br />
-            &bull; Docker Network: bridge-ensam-bdiot (172.20.0.0/16)
+            &bull; Shop projects: optional HDFS profile in Docker Compose
           </div>
         );
         break;

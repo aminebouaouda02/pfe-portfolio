@@ -6,7 +6,6 @@ import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import NowSection from "@/components/NowSection";
 import Projects from "@/components/Projects";
-import IoTTelemetrySimulator from "@/components/IoTTelemetrySimulator";
 import Skills from "@/components/Skills";
 import Certifications from "@/components/Certifications";
 import Timeline from "@/components/Timeline";
@@ -27,7 +26,6 @@ function PortfolioContent() {
         <Hero onOpenTerminal={() => setTerminalOpen(true)} />
         <NowSection />
         <Projects />
-        <IoTTelemetrySimulator />
         <Skills />
         <Certifications />
         <Timeline />

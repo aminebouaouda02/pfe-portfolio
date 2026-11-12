@@ -210,7 +210,7 @@ export const portfolioData: Record<Locale, PortfolioData> = {
       email: "bouaouda.amine@ensam-casa.ma",
       github: "https://github.com/aminebouaouda02",
       linkedin: "https://www.linkedin.com/in/amine-bouaouda-071503278/",
-      bio: "Master's student in Big Data & Internet of Things (BDIoT) at ENSAM Casablanca and aspiring AI Engineer. My engineering journey started with tinkering on microcontrollers and grew into architecting distributed multi-node Big Data clusters (Hadoop, Spark, Kafka), machine learning pipelines, and embedded IoT systems.",
+      bio: "Master's student in Big Data & Internet of Things (BDIoT) at ENSAM Casablanca, focused on Data Engineering and applied AI. I build end-to-end systems: real-time Big Data pipelines (Kafka, Spark, Hadoop), machine-learning models (Transformers, anomaly detection), and LLM applications such as a modular RAG assistant — always tested, documented, and shipped in small verified steps.",
       resumeUrl: "/cv-amine-bouaouda.pdf",
       taglineGreeting: "Salam! I'm",
       avatar: "/avatar.jpg",
@@ -245,9 +245,9 @@ export const portfolioData: Record<Locale, PortfolioData> = {
 
     stats: [
       { value: "ENSAM", label: "Master BDIoT", sub: "Top engineering school in Morocco" },
-      { value: "4-Node", label: "Hadoop Cluster", sub: "Orchestrated with Docker & HDFS" },
+      { value: "63,257", label: "Arabic Reviews Classified", sub: "LABR — AraBERT vs MARBERTv2" },
       { value: "PFE", label: "Enterprise Software", sub: "Flutter & Laravel shipped for GM-Soft" },
-      { value: "100%", label: "Curiosity & Drive", sub: "Fueled by late-night tea & debugging" },
+      { value: "10,080", label: "IoT Telemetry Readings", sub: "Anomaly detection — Isolation Forest, F1 0.277" },
     ],
 
     skillCategories: [
@@ -666,7 +666,7 @@ export const portfolioData: Record<Locale, PortfolioData> = {
         cmdEnsam: "Master's studies in Big Data & IoT details",
         cmdSkills: "Technical stack and engineering competencies",
         cmdProjects: "Showcase of production and research projects",
-        cmdHadoop: "Query virtualized Hadoop/Spark cluster telemetry",
+        cmdHadoop: "Where I use Hadoop & Spark in my projects",
         cmdContact: "Get direct contact links (Email, LinkedIn, GitHub)",
         cmdClear: "Clear the terminal screen",
         cmdExit: "Close terminal",
@@ -694,7 +694,7 @@ export const portfolioData: Record<Locale, PortfolioData> = {
       email: "bouaouda.amine@ensam-casa.ma",
       github: "https://github.com/aminebouaouda02",
       linkedin: "https://www.linkedin.com/in/amine-bouaouda-071503278/",
-      bio: "Étudiant en Master Big Data & Internet of Things (BDIoT) à l'ENSAM Casablanca et futur ingénieur IA. Mon parcours d'ingénieur a débuté en bidouillant des microcontrôleurs pour évoluer vers l'architecture de clusters Big Data distribués multi-nœuds (Hadoop, Spark, Kafka), les pipelines de Machine Learning et les systèmes IoT embarqués.",
+      bio: "Étudiant en Master Big Data & Internet of Things (BDIoT) à l'ENSAM Casablanca, spécialisé en ingénierie des données et IA appliquée. Je construis des systèmes complets : pipelines Big Data temps réel (Kafka, Spark, Hadoop), modèles de machine learning (Transformers, détection d'anomalies) et applications LLM comme un assistant RAG modulaire — toujours testés, documentés et livrés par petites étapes vérifiées.",
       resumeUrl: "/cv-amine-bouaouda.pdf",
       taglineGreeting: "Salut ! Moi c'est",
       avatar: "/avatar.jpg",
@@ -729,9 +729,9 @@ export const portfolioData: Record<Locale, PortfolioData> = {
 
     stats: [
       { value: "ENSAM", label: "Master BDIoT", sub: "Grande école d'ingénieurs à Casablanca" },
-      { value: "4 Nœuds", label: "Cluster Hadoop", sub: "Orchestré sous Docker & HDFS" },
+      { value: "63 257", label: "Avis en arabe classifiés", sub: "LABR — AraBERT contre MARBERTv2" },
       { value: "PFE", label: "Logiciel Entreprise", sub: "Solution Flutter & Laravel livrée à GM-Soft" },
-      { value: "100%", label: "Curiosité & Rigueur", sub: "Nourri de thé à la menthe & persévérance" },
+      { value: "10 080", label: "Mesures de télémétrie IoT", sub: "Détection d'anomalies — Isolation Forest, F1 0,277" },
     ],
 
     skillCategories: [
@@ -1150,7 +1150,7 @@ export const portfolioData: Record<Locale, PortfolioData> = {
         cmdEnsam: "Détails du Master en Big Data & IoT à l'ENSAM",
         cmdSkills: "Stack technique & compétences clés",
         cmdProjects: "Présentation des réalisations & projets",
-        cmdHadoop: "Télémétrie du cluster distribué Hadoop/Spark",
+        cmdHadoop: "Où j'utilise Hadoop & Spark dans mes projets",
         cmdContact: "Coordonnées directes (Email, LinkedIn, GitHub)",
         cmdClear: "Effacer l'écran du terminal",
         cmdExit: "Fermer le terminal",
