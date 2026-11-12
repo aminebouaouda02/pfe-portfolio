@@ -263,14 +263,14 @@ export const portfolioData: Record<Locale, PortfolioData> = {
         ],
       },
       {
-        title: "AI, Machine Learning & Scripts",
+        title: "AI & Machine Learning",
         iconName: "Terminal",
         skills: [
           { name: "Python (Data Analysis & ML)", level: 92 },
-          { name: "MLOps & Pipeline Automation", level: 82 },
-          { name: "n8n Workflow Automation", level: 88 },
+          { name: "RAG & LLM Applications (Groq, Pinecone)", level: 85 },
+          { name: "Transformers & NLP (Hugging Face)", level: 82 },
+          { name: "scikit-learn & Model Evaluation", level: 84 },
           { name: "Model Integration & APIs", level: 85 },
-          { name: "Algorithms & Data Structures", level: 90 },
         ],
       },
       {
@@ -290,7 +290,7 @@ export const portfolioData: Record<Locale, PortfolioData> = {
         skills: [
           { name: "Docker Containerization", level: 90 },
           { name: "Linux & Shell Scripting", level: 92 },
-          { name: "Arduino Uno & IoT Sensors", level: 88 },
+          { name: "MQTT & IoT Data Pipelines", level: 82 },
           { name: "Git & GitHub CI/CD", level: 92 },
           { name: "AWS Cloud Fundamentals", level: 78 },
         ],
@@ -751,10 +751,10 @@ export const portfolioData: Record<Locale, PortfolioData> = {
         iconName: "Terminal",
         skills: [
           { name: "Python (Data Science & ML)", level: 92 },
-          { name: "MLOps & Automatisation de Pipelines", level: 82 },
-          { name: "Automatisation de Workflows n8n", level: 88 },
+          { name: "Applications RAG & LLM (Groq, Pinecone)", level: 85 },
+          { name: "Transformers & NLP (Hugging Face)", level: 82 },
+          { name: "scikit-learn & Évaluation de Modèles", level: 84 },
           { name: "Déploiement de Modèles & APIs", level: 85 },
-          { name: "Algorithmes & Structures de Données", level: 90 },
         ],
       },
       {
@@ -774,7 +774,7 @@ export const portfolioData: Record<Locale, PortfolioData> = {
         skills: [
           { name: "Conteneurisation Docker", level: 90 },
           { name: "Linux & Scripting Shell", level: 92 },
-          { name: "Arduino Uno & Capteurs IoT", level: 88 },
+          { name: "MQTT & Pipelines de Données IoT", level: 82 },
           { name: "Git & CI/CD GitHub Actions", level: 92 },
           { name: "Fondamentaux Cloud AWS", level: 78 },
         ],
