@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import { useLanguage } from "@/context/LanguageContext";
-import { ArrowDown, Mail, Terminal, CheckCircle2, FileDown, Clock, MapPin, Sparkles, Coffee } from "lucide-react";
+import { ArrowDown, Mail, Terminal, CheckCircle2, FileDown, Clock, MapPin, Sparkles, Coffee, Globe } from "lucide-react";
 import { GithubIcon, LinkedinIcon } from "@/components/Icons";
 
 interface HeroProps {
@@ -105,6 +105,22 @@ export default function Hero({ onOpenTerminal }: HeroProps) {
               }}
             >
               {personal.bio}
+            </p>
+
+            {/* Languages */}
+            <p
+              style={{
+                display: "flex",
+                alignItems: "center",
+                gap: "0.5rem",
+                fontSize: "0.95rem",
+                color: "var(--text-muted)",
+                marginBottom: "2.2rem",
+                marginTop: "-1.2rem",
+              }}
+            >
+              <Globe size={16} color="var(--accent-cyan)" />
+              {personal.languages}
             </p>
 
             {/* CTAs */}

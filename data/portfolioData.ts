@@ -76,6 +76,7 @@ export interface PortfolioData {
     taglineGreeting: string;
     avatar: string;
     statusActivity: string;
+    languages: string;
     motto: string;
   };
   now: NowData;
@@ -205,16 +206,17 @@ export const portfolioData: Record<Locale, PortfolioData> = {
       name: "Amine Bouaouda",
       handle: "@aminebouaouda02",
       role: "Aspiring AI Engineer | Master's in Big Data & IoT @ ENSAM Casablanca",
-      statusBadge: "Master's @ ENSAM Casablanca • Open to AI & Big Data Roles",
+      statusBadge: "Master's @ ENSAM Casablanca • Open to a 6-month PFE internship in Data & AI — Feb 2027",
       location: "Casablanca, Morocco",
       email: "bouaouda.amine@ensam-casa.ma",
       github: "https://github.com/aminebouaouda02",
-      linkedin: "https://www.linkedin.com/in/amine-bouaouda-071503278/",
+      linkedin: "https://www.linkedin.com/in/amine-bouaouda",
       bio: "Master's student in Big Data & Internet of Things (BDIoT) at ENSAM Casablanca, focused on Data Engineering and applied AI. I build end-to-end systems: real-time Big Data pipelines (Kafka, Spark, Hadoop), machine-learning models (Transformers, anomaly detection), and LLM applications such as a modular RAG assistant — always tested, documented, and shipped in small verified steps.",
       resumeUrl: "/cv-amine-bouaouda.pdf",
       taglineGreeting: "Salam! I'm",
       avatar: "/avatar.jpg",
       statusActivity: "Final-year Master's student in Big Data & IoT — open to PFE internships from February 2027",
+      languages: "Arabic (native) · French (fluent) · English (B1 — EF SET, reading C2)",
       motto: "Simplicity in design, resilience at distributed scale.",
     },
 
@@ -554,6 +556,13 @@ export const portfolioData: Record<Locale, PortfolioData> = {
         skills: ["English Reading C2", "English Writing B2"],
       },
       {
+        id: "cert-aws-academy",
+        title: "AWS Academy Cloud Foundations",
+        issuer: "AWS Academy",
+        date: "November 2026",
+        skills: ["Cloud Fundamentals", "AWS Core Services"],
+      },
+      {
         id: "cert-opencv-vlm",
         title: "Vision Language Models (VLM) Bootcamp — Certificate of Excellence (100%)",
         issuer: "OpenCV University",
@@ -689,16 +698,17 @@ export const portfolioData: Record<Locale, PortfolioData> = {
       name: "Amine Bouaouda",
       handle: "@aminebouaouda02",
       role: "Élève-Ingénieur IA & Big Data | Master BDIoT @ ENSAM Casablanca",
-      statusBadge: "Master BDIoT @ ENSAM Casablanca • À l'écoute d'opportunités IA & Big Data",
+      statusBadge: "Master BDIoT @ ENSAM Casablanca • Ouvert à un stage PFE de 6 mois en Data & IA — fév. 2027",
       location: "Casablanca, Maroc",
       email: "bouaouda.amine@ensam-casa.ma",
       github: "https://github.com/aminebouaouda02",
-      linkedin: "https://www.linkedin.com/in/amine-bouaouda-071503278/",
+      linkedin: "https://www.linkedin.com/in/amine-bouaouda",
       bio: "Étudiant en Master Big Data & Internet of Things (BDIoT) à l'ENSAM Casablanca, spécialisé en ingénierie des données et IA appliquée. Je construis des systèmes complets : pipelines Big Data temps réel (Kafka, Spark, Hadoop), modèles de machine learning (Transformers, détection d'anomalies) et applications LLM comme un assistant RAG modulaire — toujours testés, documentés et livrés par petites étapes vérifiées.",
       resumeUrl: "/cv-amine-bouaouda.pdf",
       taglineGreeting: "Salut ! Moi c'est",
       avatar: "/avatar.jpg",
       statusActivity: "Étudiant en dernière année de Master Big Data & IoT — ouvert aux stages PFE dès février 2027",
+      languages: "Arabe (langue maternelle) · Français (courant) · Anglais (B1 — EF SET, lecture C2)",
       motto: "Simplicité dans la conception, résilience à l'échelle distribuée.",
     },
 
@@ -1036,6 +1046,13 @@ export const portfolioData: Record<Locale, PortfolioData> = {
         issuer: "EF SET",
         date: "octobre 2026",
         skills: ["Lecture anglaise C2", "Rédaction anglaise B2"],
+      },
+      {
+        id: "cert-aws-academy",
+        title: "AWS Academy — Fondamentaux du Cloud",
+        issuer: "AWS Academy",
+        date: "novembre 2026",
+        skills: ["Fondamentaux du cloud", "Services AWS de base"],
       },
       {
         id: "cert-opencv-vlm",
