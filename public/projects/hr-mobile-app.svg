@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#111827"/>
+      <stop offset="0.55" stop-color="#1f2937"/>
+      <stop offset="1" stop-color="#4c1d95"/>
+    </linearGradient>
+    <linearGradient id="screen" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#f9fafb"/>
+      <stop offset="1" stop-color="#e5e7eb"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <g fill="#ffffff" opacity="0.05">
+    <circle cx="130" cy="100" r="3"/><circle cx="1080" cy="110" r="3"/><circle cx="90" cy="500" r="3"/>
+    <circle cx="1120" cy="520" r="3"/><circle cx="600" cy="70" r="3"/>
+  </g>
+  <g>
+    <rect x="495" y="85" width="210" height="460" rx="30" fill="#0b1220" stroke="#6b7280" stroke-width="3"/>
+    <rect x="510" y="118" width="180" height="392" rx="14" fill="url(#screen)"/>
+    <rect x="565" y="98" width="70" height="10" rx="5" fill="#374151"/>
+    <circle cx="600" cy="180" r="30" fill="#ddd6fe"/>
+    <circle cx="600" cy="168" r="12" fill="#4c1d95"/>
+    <path d="M576 198 C580 182 620 182 624 198 Z" fill="#4c1d95"/>
+    <rect x="532" y="228" width="136" height="34" rx="9" fill="#ede9fe"/>
+    <rect x="544" y="240" width="80" height="9" rx="4.5" fill="#4c1d95" opacity="0.5"/>
+    <rect x="532" y="276" width="136" height="34" rx="9" fill="#ede9fe"/>
+    <rect x="544" y="288" width="98" height="9" rx="4.5" fill="#4c1d95" opacity="0.5"/>
+    <rect x="532" y="324" width="136" height="34" rx="9" fill="#d1fae5"/>
+    <rect x="544" y="336" width="66" height="9" rx="4.5" fill="#065f46" opacity="0.55"/>
+    <rect x="532" y="380" width="136" height="46" rx="10" fill="#7c3aed"/>
+    <text x="600" y="409" font-family="sans-serif" font-size="16" fill="#ffffff" text-anchor="middle">Demande de congé</text>
+  </g>
+  <g stroke="#a78bfa" stroke-width="3" fill="none" opacity="0.8">
+    <path d="M430 260 C400 260 380 300 350 300" stroke-dasharray="7 8"/>
+    <path d="M770 260 C800 260 820 300 850 300" stroke-dasharray="7 8"/>
+    <path d="M430 400 C400 400 385 370 350 372" stroke-dasharray="7 8"/>
+    <path d="M770 400 C800 400 815 370 850 372" stroke-dasharray="7 8"/>
+  </g>
+  <g font-family="monospace" font-size="20" fill="#e5e7eb">
+    <rect x="120" y="272" width="230" height="56" rx="14" fill="#111827" opacity="0.8"/>
+    <text x="235" y="308" text-anchor="middle">Employé</text>
+    <rect x="850" y="272" width="230" height="56" rx="14" fill="#111827" opacity="0.8"/>
+    <text x="965" y="308" text-anchor="middle">Responsable</text>
+    <rect x="120" y="344" width="230" height="56" rx="14" fill="#111827" opacity="0.8"/>
+    <text x="235" y="380" text-anchor="middle">Solde de congés</text>
+    <rect x="850" y="344" width="230" height="56" rx="14" fill="#111827" opacity="0.8"/>
+    <text x="965" y="380" text-anchor="middle">RH · Validation ✓</text>
+  </g>
+</svg>

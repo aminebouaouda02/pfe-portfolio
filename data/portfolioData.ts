@@ -214,7 +214,7 @@ export const portfolioData: Record<Locale, PortfolioData> = {
       resumeUrl: "/cv-amine-bouaouda.pdf",
       taglineGreeting: "Salam! I'm",
       avatar: "/avatar.jpg",
-      statusActivity: "Usually coding, tuning Kafka streams, or brewing Moroccan mint tea",
+      statusActivity: "Final-year Master's student in Big Data & IoT — open to PFE internships from February 2027",
       motto: "Simplicity in design, resilience at distributed scale.",
     },
 
@@ -223,25 +223,24 @@ export const portfolioData: Record<Locale, PortfolioData> = {
       title: "What I'm Doing",
       titleAccent: "Right Now",
       subtitle: "A living snapshot of what I'm learning, building, and exploring beyond deadlines.",
-      focusTitle: "Master's Thesis & Distributed Stream Processing",
-      focusDesc: "Deep diving into Spark Structured Streaming, Kafka partitioning, and distributed storage redundancy at ENSAM Casablanca.",
+      focusTitle: "PFE Internship Search & Applied AI",
+      focusDesc: "Final year of the Big Data & IoT Master's at ENSAM Casablanca. I am looking for a 6-month end-of-studies (PFE) internship in Data & AI starting February 2027, while building portfolio-grade projects: a modular RAG assistant and a connected-vehicle Big Data platform.",
       exploringTitle: "Curiosity Radar",
       exploringItems: [
-        { name: "Apache Iceberg", tag: "Data Lakehouse" },
-        { name: "Rust for Systems", tag: "Memory Safety & Speed" },
-        { name: "Autonomous LLM Agents", tag: "Applied AI" },
-        { name: "ClickHouse", tag: "Real-time OLAP" },
+        { name: "Vision Language Models", tag: "OpenCV University — certified Nov 2026" },
+        { name: "LLM Agents & Text-to-SQL", tag: "Applied AI" },
+        { name: "Spark Structured Streaming", tag: "FleetSense" },
+        { name: "RAG Evaluation", tag: "Retrieval Quality" },
       ],
       readingTitle: "On My Desk",
-      readingBook: "Designing Data-Intensive Applications by Martin Kleppmann",
+      readingBook: "Vision Language Models Bootcamp — OpenCV University (completed November 2026, grade 100%)",
       beyondTitle: "Beyond The Screen",
       beyondItems: [
-        "Hardware tinkering with ESP32 & Arduino sensors",
-        "Chess tactics & strategic puzzles",
-        "Moroccan mint tea rituals & late-night brainstorming",
-        "Exploring open-source distributed frameworks",
+        "Building open-source projects on GitHub, one slice at a time",
+        "Family time between Casablanca and Beni Mellal",
+        "Following AI research and product news",
       ],
-      coffeeTeaNote: "Currently based in Casablanca, Morocco (UTC+1). Always happy to talk tech over tea.",
+      coffeeTeaNote: "Usually coding, tuning Kafka streams, or reviewing model results",
     },
 
     stats: [
@@ -300,6 +299,26 @@ export const portfolioData: Record<Locale, PortfolioData> = {
 
     projects: [
       {
+        id: "modular-rag-assistant",
+        title: "Modular RAG Assistant",
+        category: "data",
+        featured: true,
+        summary: "Retrieval-Augmented Generation assistant over PDF documents: grounded answers with page-level citations, an evaluation harness, and 40 automated tests.",
+        description:
+          "A modular RAG system that answers questions over PDF documents and cites its sources. PyMuPDF extracts text page by page, a chunker keeps source and page metadata, Google embeddings are indexed in Pinecone, and the top-matching chunks ground a Groq LLM answer returned with [file, p. N] citations. FastAPI backend with a chat web app (PDF upload, conversation history), offline fallback providers so the whole pipeline is testable, an 8-question evaluation set, a 40-test pytest suite, CI and Docker.",
+        tags: ["Python", "FastAPI", "RAG", "LLM (Groq)", "Pinecone", "Embeddings", "PyMuPDF", "pytest", "Docker"],
+        githubUrl: "https://github.com/aminebouaouda02/modular-rag-assistant",
+        image: "/projects/modular-rag-assistant.svg",
+        highlights: [
+          "Answers grounded in retrieved chunks only, with [file, p. N] citations",
+          "Chunking with source/page metadata and overlap; per-page PDF extraction",
+          "Evaluation harness: hit@3, answer accuracy, citation rate, abstention",
+          "40 pytest tests, GitHub Actions CI, Docker image",
+        ],
+        challenge:
+          "Keeping the model honest: it only ever sees the retrieved chunks, and the evaluation set showed exactly where retrieval misses — measuring that openly mattered more than a demo that always looks right.",
+      },
+      {
         id: "sellsight-big-data-platform",
         title: "SellSight — Big Data Selling Platform (Team Project)",
         category: "data",
@@ -320,6 +339,26 @@ export const portfolioData: Record<Locale, PortfolioData> = {
           "Connecting the streaming, storage and batch layers so the analytics stay consistent with the transactional data — events, warehouse tables and Spark outputs have to agree.",
       },
       {
+        id: "labr-arabic-reviews",
+        title: "LABR — Arabic Book Review Classification",
+        category: "data",
+        featured: true,
+        summary: "Fine-tuned Arabic Transformers (AraBERT vs MARBERTv2) predicting 1–5 star ratings for 63,257 Arabic book reviews, scored with ordinal-aware metrics.",
+        description:
+          "Two-person university project (ENSAM Casablanca) on the LABR dataset: 63,257 Arabic book reviews to classify into their 1–5 star rating — an ordinal problem, where confusing 4 stars with 5 is a smaller error than confusing 1 with 5. Two pre-trained Arabic Transformers are fine-tuned and compared head-to-head: AraBERT, trained on Modern Standard Arabic, and MARBERTv2, trained on dialectal Arabic and social media. Evaluation uses Macro-F1 and Mean Absolute Error to respect the ordering of the classes.",
+        tags: ["PyTorch", "Hugging Face", "Transformers", "AraBERT", "MARBERTv2", "NLP", "Arabic"],
+        githubUrl: "https://github.com/aminebouaouda02/arabic-book-reviews-labr",
+        image: "/projects/labr-arabic-reviews.svg",
+        highlights: [
+          "63,257 real Arabic book reviews (LABR dataset)",
+          "AraBERT vs MARBERTv2 fine-tuning, compared head-to-head",
+          "Ordinal-aware evaluation: Macro-F1 and Mean Absolute Error",
+          "Built as a two-person team project at ENSAM Casablanca",
+        ],
+        challenge:
+          "Arabic's morphology and dialect mix: a model trained on Modern Standard Arabic reads formal text well, but book reviews slip into dialect — exactly why the dialect-trained MARBERTv2 belongs in the comparison.",
+      },
+      {
         id: "iot-anomaly-detection",
         title: "IoT Anomaly Detection",
         category: "data",
@@ -338,6 +377,25 @@ export const portfolioData: Record<Locale, PortfolioData> = {
         ],
         challenge:
           "Detecting slow sensor drifts and stuck sensors — the anomaly types a simple threshold misses — without drowning the operator in false positives on the obvious spikes.",
+      },
+      {
+        id: "fleetsense",
+        title: "FleetSense — Connected Vehicle Rental Platform",
+        category: "data",
+        featured: false,
+        summary: "Big Data platform for connected vehicle rental, built by a team of three — I own the ingestion and storage layer. In progress.",
+        description:
+          "A three-person Big Data platform for a connected vehicle rental service: vehicles stream position, speed, fuel level and mileage. My responsibility is the ingestion and storage layer — Kafka for the live telemetry streams, Flume and Sqoop for collection and reference data, HDFS for raw storage, Hive for historical analytics, and HBase for fast per-vehicle lookups such as the last known position. My teammates build the Spark Streaming processing with an ML price-recommendation model, and the Spring Boot API with the React screens. The whole stack runs in Docker.",
+        tags: ["Kafka", "Flume", "Sqoop", "HDFS", "Hive", "HBase", "Spark", "Docker"],
+        image: "/projects/fleetsense.svg",
+        highlights: [
+          "Ingestion & storage layer: Kafka, Flume, Sqoop, HDFS, Hive, HBase",
+          "HBase key-based lookups for the last position of each vehicle",
+          "Hive analytics over the full telemetry history",
+          "Team of three, fully containerised with Docker",
+        ],
+        challenge:
+          "Splitting storage by access pattern: history belongs in HDFS/Hive, but 'where is this vehicle right now?' needs HBase's fast key reads — one store for both jobs would be slow at one of them.",
       },
       {
         id: "shop-analytics-platform",
@@ -384,58 +442,23 @@ export const portfolioData: Record<Locale, PortfolioData> = {
           "Modelling the application status workflow so a status change is one validated server-side transition — the API updates it via PUT /api/applications/{id}/status and the interface reflects it immediately.",
       },
       {
-        id: "hadoop-distributed-cluster",
-        title: "Big Data Distributed Architecture",
-        category: "data",
-        featured: true,
-        summary: "Virtualized multi-node Hadoop ecosystem utilizing HDFS, YARN, and Docker containers.",
-        description:
-          "Designed and deployed a virtualized distributed Hadoop cluster within multi-container Docker environments at ENSAM Casablanca. Implemented HDFS distributed file system redundancy, configured YARN for distributed compute orchestration, and optimized big data job scheduling.",
-        tags: ["Hadoop", "HDFS", "YARN", "Docker", "Linux", "Big Data", "Distributed Systems"],
-        highlights: [
-          "Multi-node virtualized Hadoop cluster orchestrating HDFS & YARN",
-          "Configured master/worker node topology with Docker containers",
-          "Optimized resource scheduling and distributed data partition processing",
-          "Robust containerized infrastructure managed via automated scripts",
-        ],
-        challenge:
-          "Configuring reliable inter-container bridge networking so that HDFS NameNode and YARN ResourceManager maintained persistent heartbeats with worker DataNodes without IP collisions or split-brain states.",
-      },
-      {
-        id: "greenhouse-irrigation-iot",
-        title: "Automated Greenhouse Irrigation System",
-        category: "iot",
-        featured: true,
-        summary: "Solar-ready, autonomous regulated greenhouse irrigation system powered by Arduino and IoT sensors.",
-        description:
-          "Built a complete intelligent, solar-ready greenhouse irrigation and monitoring system. Leveraged an Arduino Uno microcontroller, soil moisture sensors, and PIR motion detectors to automatically regulate water distribution based on soil needs and secure the perimeter.",
-        tags: ["IoT", "Arduino Uno", "Embedded C++", "Sensors", "Solar Power", "Hardware Automation"],
-        highlights: [
-          "Real-time soil moisture monitoring with autonomous relay pump triggers",
-          "PIR motion surveillance integration for intruder/wildlife detection",
-          "Designed for solar-energy harvesting and low-power operation",
-          "Tested in agricultural greenhouse conditions for optimal water conservation",
-        ],
-        challenge:
-          "Calibrating analog soil moisture readings under extreme daytime heat variations in a real greenhouse, while architecting an ultra-low power sleep/wake relay cycle to prevent draining the solar battery bank.",
-      },
-      {
         id: "hr-mobile-app",
         title: "HR Mobile Management Platform (PFE)",
         category: "fullstack",
-        featured: true,
-        summary: "Cross-platform enterprise HR management mobile application with Flutter and Laravel REST API.",
+        featured: false,
+        summary: "Cross-platform HR management application built at GM-Soft: leave requests with a manager-to-HR validation circuit, leave balances, and role-based access.",
         description:
-          "End-of-Studies (PFE) project engineered for GM-Soft IT Solutions. Designed and developed a comprehensive mobile application for human resources management, featuring role-based permission control, leave request workflows, attendance tracking, and JWT-authenticated Laravel backend.",
-        tags: ["Flutter", "Dart", "Laravel", "PHP", "MySQL", "REST API", "JWT Auth"],
+          "End-of-studies (PFE) project engineered for GM-Soft IT Solutions. A comprehensive human-resources management application: employee records, leave and absence requests that follow a validation circuit (employee, then manager, then HR), leave balances tracked per employee, and role-based access for HR admins, managers and employees. Cross-platform Flutter application backed by a Laravel REST API and a relational database.",
+        tags: ["Flutter", "Dart", "Laravel", "PHP", "MySQL", "REST API"],
+        image: "/projects/hr-mobile-app.svg",
         highlights: [
-          "Cross-platform mobile UI built with Flutter & Dart for iOS and Android",
-          "Secure REST API backend built with Laravel, MySQL, and JWT authentication",
-          "Role-based access control (Admin, Manager, Employee)",
-          "Comprehensive database modeling and relational integrity",
+          "Leave requests with an employee → manager → HR validation circuit",
+          "Leave balances tracked per employee",
+          "Three roles with distinct permissions: HR admin, manager, employee",
+          "Flutter mobile app over a Laravel REST API",
         ],
         challenge:
-          "Translating complex multi-tier Moroccan labor leave calculation rules into clean reactive state in Flutter, backed by atomic database transactions on Laravel to eliminate race conditions.",
+          "Modelling the leave rules — balances, validation steps, roles — so a request can never skip a step or exceed a balance, consistently across the mobile app and the API.",
       },
     ],
 
@@ -675,34 +698,33 @@ export const portfolioData: Record<Locale, PortfolioData> = {
       resumeUrl: "/cv-amine-bouaouda.pdf",
       taglineGreeting: "Salut ! Moi c'est",
       avatar: "/avatar.jpg",
-      statusActivity: "En train de coder, optimiser des flux Kafka ou savourer un thé à la menthe",
+      statusActivity: "Étudiant en dernière année de Master Big Data & IoT — ouvert aux stages PFE dès février 2027",
       motto: "Simplicité dans la conception, résilience à l'échelle distribuée.",
     },
 
     now: {
-      badge: "Momentum & Actualité",
+      badge: "Vie & Élan",
       title: "Ce que je fais",
-      titleAccent: "En ce Moment",
-      subtitle: "Un aperçu vivant de ce que j'apprends, conçois et explore en dehors des cours.",
-      focusTitle: "Thèse de Master & Traitement de Flux Distribués",
-      focusDesc: "Immersion dans le traitement de flux Spark Structured Streaming, le partitionnement Kafka et la redondance de stockage à l'ENSAM Casablanca.",
-      exploringTitle: "Radar de Curiosité",
+      titleAccent: "En ce moment",
+      subtitle: "Un instantané vivant de ce que j'apprends, construis et explore au-delà des délais.",
+      focusTitle: "Recherche de stage PFE & IA appliquée",
+      focusDesc: "Dernière année du Master Big Data & IoT à l'ENSAM Casablanca. Je cherche un stage de fin d'études (PFE) de 6 mois en Data & IA à partir de février 2027, tout en construisant des projets de niveau portfolio : un assistant RAG modulaire et une plateforme Big Data pour véhicules connectés.",
+      exploringTitle: "Radar de curiosité",
       exploringItems: [
-        { name: "Apache Iceberg", tag: "Data Lakehouse" },
-        { name: "Rust pour Systèmes", tag: "Performance & Sécurité" },
-        { name: "Agents IA Autonomes", tag: "IA Appliquée" },
-        { name: "ClickHouse", tag: "OLAP Temps Réel" },
+        { name: "Modèles vision-langage (VLM)", tag: "OpenCV University — certifié en nov. 2026" },
+        { name: "Agents LLM & Text-to-SQL", tag: "IA appliquée" },
+        { name: "Spark Structured Streaming", tag: "FleetSense" },
+        { name: "Évaluation RAG", tag: "Qualité de recherche" },
       ],
       readingTitle: "Sur mon bureau",
-      readingBook: "Designing Data-Intensive Applications par Martin Kleppmann",
-      beyondTitle: "En dehors du code",
+      readingBook: "Bootcamp Vision Language Models — OpenCV University (terminé en novembre 2026, note 100 %)",
+      beyondTitle: "Au-delà de l'écran",
       beyondItems: [
-        "Bricolage matériel avec capteurs ESP32 & Arduino",
-        "Tactiques d'échecs & casse-têtes stratégiques",
-        "Rituels de thé marocain & réflexions nocturnes",
-        "Veille active sur les frameworks distribués open-source",
+        "Construire des projets open source sur GitHub, tranche par tranche",
+        "Du temps en famille entre Casablanca et Béni Mellal",
+        "Suivre l'actualité de la recherche et des produits IA",
       ],
-      coffeeTeaNote: "Basé à Casablanca, Maroc (UTC+1). Toujours ravi d'échanger autour d'un bon thé.",
+      coffeeTeaNote: "Souvent en train de coder, de régler des flux Kafka ou d'analyser des résultats de modèles",
     },
 
     stats: [
@@ -761,6 +783,26 @@ export const portfolioData: Record<Locale, PortfolioData> = {
 
     projects: [
       {
+        id: "modular-rag-assistant",
+        title: "Assistant RAG Modulaire",
+        category: "data",
+        featured: true,
+        summary: "Assistant de Retrieval-Augmented Generation sur documents PDF : réponses ancrées avec citations par page, harnais d'évaluation et 40 tests automatisés.",
+        description:
+          "Un système RAG modulaire qui répond aux questions sur des documents PDF en citant ses sources. PyMuPDF extrait le texte page par page, un découpeur conserve les métadonnées source et page, les embeddings Google sont indexés dans Pinecone, et les passages les plus proches ancrent une réponse du LLM Groq rendue avec des citations [fichier, p. N]. Backend FastAPI avec une application web de chat (dépôt de PDF, historique de conversation), fournisseurs hors-ligne de repli pour tout tester, un jeu d'évaluation de 8 questions, une suite de 40 tests pytest, CI et Docker.",
+        tags: ["Python", "FastAPI", "RAG", "LLM (Groq)", "Pinecone", "Embeddings", "PyMuPDF", "pytest", "Docker"],
+        githubUrl: "https://github.com/aminebouaouda02/modular-rag-assistant",
+        image: "/projects/modular-rag-assistant.svg",
+        highlights: [
+          "Réponses ancrées dans les seuls passages retrouvés, avec citations [fichier, p. N]",
+          "Découpage avec métadonnées source/page et chevauchement ; extraction PDF par page",
+          "Harnais d'évaluation : hit@3, exactitude, taux de citations, abstention",
+          "40 tests pytest, CI GitHub Actions, image Docker",
+        ],
+        challenge:
+          "Garder le modèle honnête : il ne voit jamais que les passages retrouvés, et le jeu d'évaluation a montré exactement où la recherche passe à côté — mesurer cela ouvertement comptait plus qu'une démo toujours flatteuse.",
+      },
+      {
         id: "sellsight-big-data-platform",
         title: "SellSight — Plateforme de Vente Big Data (Projet d'Équipe)",
         category: "data",
@@ -781,6 +823,26 @@ export const portfolioData: Record<Locale, PortfolioData> = {
           "Relier les couches streaming, stockage et batch pour que l'analytique reste cohérente avec les données transactionnelles — événements, tables d'entrepôt et résultats Spark doivent concorder.",
       },
       {
+        id: "labr-arabic-reviews",
+        title: "LABR — Classification d'Avis de Livres en Arabe",
+        category: "data",
+        featured: true,
+        summary: "Transformers arabes affinés (AraBERT contre MARBERTv2) prédisant la note de 1 à 5 étoiles de 63 257 avis de livres en arabe, avec des métriques ordinales.",
+        description:
+          "Projet universitaire en binôme (ENSAM Casablanca) sur le jeu de données LABR : 63 257 avis de livres en arabe à classer selon leur note de 1 à 5 étoiles — un problème ordinal, où confondre 4 et 5 étoiles est une erreur plus petite que confondre 1 et 5. Deux Transformers arabes pré-entraînés sont affinés et comparés directement : AraBERT, entraîné sur l'arabe standard moderne, et MARBERTv2, entraîné sur l'arabe dialectal et les réseaux sociaux. L'évaluation utilise le Macro-F1 et l'erreur absolue moyenne (MAE) pour respecter l'ordre des classes.",
+        tags: ["PyTorch", "Hugging Face", "Transformers", "AraBERT", "MARBERTv2", "NLP", "Arabe"],
+        githubUrl: "https://github.com/aminebouaouda02/arabic-book-reviews-labr",
+        image: "/projects/labr-arabic-reviews.svg",
+        highlights: [
+          "63 257 avis réels de livres en arabe (jeu de données LABR)",
+          "Affinage d'AraBERT et de MARBERTv2, comparés directement",
+          "Évaluation ordinale : Macro-F1 et erreur absolue moyenne (MAE)",
+          "Projet réalisé en binôme à l'ENSAM Casablanca",
+        ],
+        challenge:
+          "La morphologie de l'arabe et le mélange des dialectes : un modèle entraîné sur l'arabe standard lit bien les textes formels, mais les avis de livres glissent vers le dialecte — exactement la raison d'être de la comparaison avec MARBERTv2.",
+      },
+      {
         id: "iot-anomaly-detection",
         title: "Détection d'Anomalies IoT",
         category: "data",
@@ -799,6 +861,25 @@ export const portfolioData: Record<Locale, PortfolioData> = {
         ],
         challenge:
           "Détecter les dérives lentes et les capteurs bloqués — les anomalies qu'un simple seuil ne voit pas — sans noyer l'opérateur sous les faux positifs sur les pics évidents.",
+      },
+      {
+        id: "fleetsense",
+        title: "FleetSense — Plateforme de Location de Véhicules Connectés",
+        category: "data",
+        featured: false,
+        summary: "Plateforme Big Data pour la location de véhicules connectés, réalisée en équipe de trois — je suis responsable de la couche ingestion et stockage. En cours.",
+        description:
+          "Une plateforme Big Data réalisée en équipe de trois pour un service de location de véhicules connectés : les véhicules envoient en continu position, vitesse, niveau de carburant et kilométrage. Ma responsabilité : la couche d'ingestion et de stockage — Kafka pour les flux de télémétrie en direct, Flume et Sqoop pour la collecte et les données de référence, HDFS pour le stockage brut, Hive pour l'analyse de l'historique, et HBase pour les lectures rapides par véhicule, comme la dernière position connue. Mes coéquipiers construisent le traitement Spark Streaming avec un modèle ML de recommandation de prix, ainsi que l'API Spring Boot et les écrans React. Toute la plateforme tourne sous Docker.",
+        tags: ["Kafka", "Flume", "Sqoop", "HDFS", "Hive", "HBase", "Spark", "Docker"],
+        image: "/projects/fleetsense.svg",
+        highlights: [
+          "Couche ingestion et stockage : Kafka, Flume, Sqoop, HDFS, Hive, HBase",
+          "Lectures par clé HBase pour la dernière position de chaque véhicule",
+          "Analyses Hive sur tout l'historique de télémétrie",
+          "Équipe de trois, plateforme entièrement conteneurisée avec Docker",
+        ],
+        challenge:
+          "Séparer le stockage selon le type d'accès : l'historique va dans HDFS/Hive, mais « où est ce véhicule maintenant ? » exige les lectures rapides par clé de HBase — un seul stockage pour les deux serait lent sur l'un des deux.",
       },
       {
         id: "shop-analytics-platform",
@@ -845,58 +926,23 @@ export const portfolioData: Record<Locale, PortfolioData> = {
           "Modéliser le workflow des statuts de candidature pour qu'un changement de statut soit une transition unique et validée côté serveur — l'API le met à jour via PUT /api/applications/{id}/status et l'interface le reflète immédiatement.",
       },
       {
-        id: "hadoop-distributed-cluster",
-        title: "Architecture Distribuée Big Data",
-        category: "data",
-        featured: true,
-        summary: "Écosystème Hadoop multi-nœuds virtualisé utilisant HDFS, YARN et des conteneurs Docker.",
-        description:
-          "Conception et déploiement d'un cluster Hadoop distribué et virtualisé au sein d'environnements Docker multi-conteneurs à l'ENSAM Casablanca. Mise en œuvre de la redondance HDFS, allocation des ressources avec YARN et ordonnancement de jobs Big Data.",
-        tags: ["Hadoop", "HDFS", "YARN", "Docker", "Linux", "Big Data", "Systèmes Distribués"],
-        highlights: [
-          "Cluster Hadoop multi-nœuds orchestrant HDFS et YARN",
-          "Topologie master/worker optimisée avec Docker Compose",
-          "Ordonnancement performant et traitement distribué des partitions de données",
-          "Infrastructure reproductible gérée par scripts automatisés",
-        ],
-        challenge:
-          "Configurer le routage réseau et le DNS inter-conteneurs Docker pour assurer que le NameNode HDFS et le ResourceManager YARN maintiennent des heartbeats stables avec les DataNodes sans dérive d'adresses IP.",
-      },
-      {
-        id: "greenhouse-irrigation-iot",
-        title: "Système d'Irrigation Intelligent pour Serre",
-        category: "iot",
-        featured: true,
-        summary: "Système autonome d'irrigation régulée pour serre agricole, alimenté par énergie solaire et capteurs IoT.",
-        description:
-          "Conception d'un système intelligent et autonome de régulation climatique et d'arrosage pour serres agricoles. Piloté par un microcontrôleur Arduino Uno, des capteurs d'humidité du sol et des détecteurs de mouvement PIR pour la sécurité du périmètre.",
-        tags: ["IoT", "Arduino Uno", "C++ Embarqué", "Capteurs", "Énergie Solaire", "Automatisation"],
-        highlights: [
-          "Surveillance en temps réel de l'humidité du sol et déclenchement automatique des relais",
-          "Détection d'intrusion et surveillance périmétrique par capteurs PIR",
-          "Conception basse consommation prête pour l'alimentation par panneau solaire",
-          "Testé en conditions agricoles pour une préservation optimale de la ressource en eau",
-        ],
-        challenge:
-          "Calibrer la lecture analogique de l'humidité du sol face aux fortes amplitudes thermiques en serre réelle, tout en concevant un cycle de veille/réveil ultra-basse consommation pour préserver la batterie solaire.",
-      },
-      {
         id: "hr-mobile-app",
         title: "Plateforme Mobile de Gestion RH (PFE)",
         category: "fullstack",
-        featured: true,
-        summary: "Application mobile d'entreprise pour la gestion des ressources humaines développée avec Flutter et API Laravel.",
+        featured: false,
+        summary: "Application de gestion RH réalisée chez GM-Soft : demandes de congés avec circuit de validation responsable puis RH, soldes de congés et accès par rôles.",
         description:
-          "Projet de Fin d'Études (PFE) réalisé pour GM-Soft IT Solutions. Solution mobile complète comprenant l'authentification par tokens JWT, la gestion des permissions basée sur les rôles, les demandes de congé et le suivi des présences.",
-        tags: ["Flutter", "Dart", "Laravel", "PHP", "MySQL", "API REST", "Auth JWT"],
+          "Projet de fin d'études (PFE) réalisé pour GM-Soft IT Solutions. Une application complète de gestion des ressources humaines : dossiers des employés, demandes de congés et d'absences suivant un circuit de validation (employé, puis responsable, puis RH), soldes de congés suivis par employé, et accès par rôles pour les administrateurs RH, les responsables et les employés. Application mobile Flutter multiplateforme adossée à une API REST Laravel et une base de données relationnelle.",
+        tags: ["Flutter", "Dart", "Laravel", "PHP", "MySQL", "API REST"],
+        image: "/projects/hr-mobile-app.svg",
         highlights: [
-          "Interface mobile cross-platform fluide conçue avec Flutter & Dart pour iOS et Android",
-          "Backend API REST robuste sous Laravel, MySQL et authentification JWT",
-          "Contrôle d'accès basé sur les rôles (Admin, Manager, Salarié)",
-          "Modélisation de base de données relationnelle complète et intégrité référentielle",
+          "Demandes de congés avec circuit de validation employé → responsable → RH",
+          "Soldes de congés suivis par employé",
+          "Trois rôles aux permissions distinctes : admin RH, responsable, employé",
+          "Application mobile Flutter sur une API REST Laravel",
         ],
         challenge:
-          "Traduire les règles complexes du code du travail marocain pour le calcul des congés en un état réactif fluide sous Flutter, adossé à des transactions atomiques côté Laravel.",
+          "Modéliser les règles de congés — soldes, étapes de validation, rôles — pour qu'une demande ne puisse jamais sauter une étape ni dépasser un solde, de façon cohérente entre l'application mobile et l'API.",
       },
     ],
 

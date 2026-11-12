@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#022c22"/>
+      <stop offset="0.55" stop-color="#065f46"/>
+      <stop offset="1" stop-color="#0d9488"/>
+    </linearGradient>
+    <linearGradient id="page" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ecfdf5"/>
+      <stop offset="1" stop-color="#a7f3d0"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <g fill="#ffffff" opacity="0.05">
+    <circle cx="140" cy="110" r="3"/><circle cx="1060" cy="90" r="3"/><circle cx="90" cy="480" r="3"/>
+    <circle cx="1110" cy="470" r="3"/><circle cx="600" cy="60" r="3"/><circle cx="420" cy="580" r="3"/>
+  </g>
+  <g>
+    <path d="M600 160 C520 120 420 118 330 140 L330 470 C420 448 520 450 600 490 Z" fill="url(#page)"/>
+    <path d="M600 160 C680 120 780 118 870 140 L870 470 C780 448 680 450 600 490 Z" fill="url(#page)" opacity="0.88"/>
+    <path d="M600 160 L600 490" stroke="#065f46" stroke-width="4" opacity="0.35"/>
+    <g fill="#065f46" opacity="0.4">
+      <rect x="365" y="195" width="185" height="11" rx="5.5"/>
+      <rect x="365" y="225" width="185" height="11" rx="5.5" opacity="0.7"/>
+      <rect x="365" y="255" width="140" height="11" rx="5.5" opacity="0.7"/>
+      <rect x="650" y="195" width="185" height="11" rx="5.5"/>
+      <rect x="650" y="225" width="150" height="11" rx="5.5" opacity="0.7"/>
+      <rect x="650" y="255" width="185" height="11" rx="5.5" opacity="0.7"/>
+    </g>
+  </g>
+  <g fill="#f59e0b">
+    <path transform="translate(415 330) scale(1.15)" d="M12 2l2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.2 5.9 20.6l1.4-6.8L2.2 9.1l6.9-.8z"/>
+    <path transform="translate(490 330) scale(1.15)" d="M12 2l2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.2 5.9 20.6l1.4-6.8L2.2 9.1l6.9-.8z"/>
+    <path transform="translate(565 330) scale(1.15)" d="M12 2l2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.2 5.9 20.6l1.4-6.8L2.2 9.1l6.9-.8z"/>
+    <path transform="translate(640 330) scale(1.15)" d="M12 2l2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.2 5.9 20.6l1.4-6.8L2.2 9.1l6.9-.8z"/>
+    <path transform="translate(715 330) scale(1.15)" fill="#d1d5db" opacity="0.55" d="M12 2l2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.2 5.9 20.6l1.4-6.8L2.2 9.1l6.9-.8z"/>
+  </g>
+  <g>
+    <rect x="468" y="520" width="264" height="44" rx="22" fill="#022c22" opacity="0.55"/>
+    <text x="600" y="549" font-family="monospace" font-size="21" fill="#a7f3d0" text-anchor="middle">63,257 reviews · 1–5 ★</text>
+  </g>
+</svg>
