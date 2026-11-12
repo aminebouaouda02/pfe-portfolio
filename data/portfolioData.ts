@@ -530,6 +530,13 @@ export const portfolioData: Record<Locale, PortfolioData> = {
         date: "October 2026",
         skills: ["English Reading C2", "English Writing B2"],
       },
+      {
+        id: "cert-opencv-vlm",
+        title: "Vision Language Models (VLM) Bootcamp — Certificate of Excellence (100%)",
+        issuer: "OpenCV University",
+        date: "November 2026",
+        skills: ["Vision Language Models", "Multimodal AI", "Computer Vision"],
+      },
     ],
 
     ui: {
@@ -983,6 +990,13 @@ export const portfolioData: Record<Locale, PortfolioData> = {
         issuer: "EF SET",
         date: "octobre 2026",
         skills: ["Lecture anglaise C2", "Rédaction anglaise B2"],
+      },
+      {
+        id: "cert-opencv-vlm",
+        title: "Bootcamp Vision Language Models (VLM) — Certificat d'Excellence (100 %)",
+        issuer: "OpenCV University",
+        date: "novembre 2026",
+        skills: ["Modèles vision-langage", "IA multimodale", "Vision par ordinateur"],
       },
     ],
 
